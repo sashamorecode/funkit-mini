@@ -1,0 +1,104 @@
+Configuration	Funkit-mini2
+STM32CubeMX 	6.14.1
+Date	05/22/2025
+MCU	STM32F756ZGTx
+
+
+
+PERIPHERALS	MODES	FUNCTIONS	PINS
+I2C1	I2C	I2C1_SCL	PB8
+I2C1	I2C	I2C1_SDA	PB9
+I2S2	Half-Duplex Master	I2S2_CK	PB10
+I2S2	Half-Duplex Master	I2S2_SD	PC3
+I2S2	Half-Duplex Master	I2S2_WS	PB12
+I2S2	Activated	I2S2_MCK	PC6
+I2S3	Half-Duplex Slave	I2S3_CK	PC10
+I2S3	Half-Duplex Slave	I2S3_SD	PC12
+I2S3	Half-Duplex Slave	I2S3_WS	PA4
+SYS	SysTick	SYS_VS_Systick	VP_SYS_VS_Systick
+TIM1	Encoder Mode	TIM1_CH1	PE9
+TIM1	Encoder Mode	TIM1_CH2	PE11
+TIM2	Encoder Mode	TIM2_CH1	PA0/WKUP
+TIM2	Encoder Mode	TIM2_CH2	PB3
+
+
+
+Pin Nb	PINs	FUNCTIONs	LABELs
+29	PC3	I2S2_SD	
+34	PA0/WKUP	TIM2_CH1	
+40	PA4	I2S3_WS	
+56	PG0	GPIO_Input	EncoderSW
+57	PG1	GPIO_Input	Button1
+60	PE9	TIM1_CH1	
+64	PE11	TIM1_CH2	
+69	PB10	I2S2_CK	
+73	PB12	I2S2_WS	
+96	PC6	I2S2_MCK	
+111	PC10	I2S3_CK	
+113	PC12	I2S3_SD	
+115	PD1	GPIO_Input	EncoderSW2
+133	PB3	TIM2_CH2	
+139	PB8	I2C1_SCL	
+140	PB9	I2C1_SDA	
+PERIPHERALS	MODES	FUNCTIONS	PINS
+I2C1	I2C	I2C1_SCL	PB8
+I2C1	I2C	I2C1_SDA	PB9
+I2S2	Half-Duplex Master	I2S2_CK	PB10
+I2S2	Half-Duplex Master	I2S2_SD	PC3
+I2S2	Half-Duplex Master	I2S2_WS	PB12
+I2S2	Activated	I2S2_MCK	PC6
+I2S3	Half-Duplex Slave	I2S3_CK	PC10
+I2S3	Half-Duplex Slave	I2S3_SD	PC12
+I2S3	Half-Duplex Slave	I2S3_WS	PA4
+SYS	SysTick	SYS_VS_Systick	VP_SYS_VS_Systick
+TIM1	Encoder Mode	TIM1_CH1	PE9
+TIM1	Encoder Mode	TIM1_CH2	PE11
+TIM2	Encoder Mode	TIM2_CH1	PA0/WKUP
+TIM2	Encoder Mode	TIM2_CH2	PB3
+
+
+
+Pin Nb	PINs	FUNCTIONs	LABELs
+29	PC3	I2S2_SD	
+34	PA0/WKUP	TIM2_CH1	
+40	PA4	I2S3_WS	
+56	PG0	GPIO_Input	EncoderSW
+57	PG1	GPIO_Input	Button1
+60	PE9	TIM1_CH1	
+64	PE11	TIM1_CH2	
+69	PB10	I2S2_CK	
+73	PB12	I2S2_WS	
+96	PC6	I2S2_MCK	
+111	PC10	I2S3_CK	
+113	PC12	I2S3_SD	
+115	PD1	GPIO_Input	EncoderSW2
+133	PB3	TIM2_CH2	
+139	PB8	I2C1_SCL	
+140	PB9	I2C1_SDA	
+
+
+
+SOFTWARE PROJECT
+
+Project Settings : 
+Project Name : Funkit-mini2
+Project Folder : /home/sasha/STM32CubeIDE/workspace_live_proj/Funkit-mini2
+Toolchain / IDE : STM32CubeIDE
+Firmware Package Name and Version : STM32Cube FW_F7 V1.17.3
+
+
+Code Generation Settings : 
+STM32Cube MCU packages and embedded software packs : Copy only the necessary library files
+Generate peripheral initialization as a pair of '.c/.h' files per peripheral : No
+Backup previously generated files when re-generating : No
+Delete previously generated files when not re-generated : Yes
+Set all free pins as analog (to optimize the power consumption) : No
+
+
+Toolchains Settings : 
+Compiler Optimizations : 
+
+
+
+
+

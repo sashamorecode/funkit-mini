@@ -28,25 +28,14 @@
 #include "i2c_lcd.h"
 #include "delay.h"
 #include "echo.h"
+#include "filter_effect.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-enum effect{
-	PASS,
-	ECHO,
-	DELAY,
-	NUM_EFFECTS,
-};
 
-typedef struct{
-	enum effect currentEffect;
-	int effectTracker; //used to make it take 2 encoder vals for change effect.
-	float volume;
-	int modButtonDownState;
-	int lastEncoderVal1;
-	int lastEncoderVal2;
-}masterState;
+
+
 
 /* USER CODE END PTD */
 
@@ -81,8 +70,8 @@ volatile int rxFullComplete = 0;
 volatile int txFullComplete = 0;
 volatile int stateUpdateCounter = 0;
 // DMA Buffers
-uint16_t rxBuf[BUF_SAMPLES];
-uint16_t txBuf[BUF_SAMPLES];
+uint16_t 	rxBuf[BUF_SAMPLES];
+uint16_t 	txBuf[BUF_SAMPLES];
 
 float32_t	srcLeft[SAMPLES/2];
 float32_t	srcRight[SAMPLES/2];
@@ -92,7 +81,7 @@ float32_t	destRight[SAMPLES/2];
 
 volatile int delayPtr = 0;
 
-masterState state = {PASS, 0, 1.f, 0, 0 , 0};
+masterState mState = {PASS, 0, 1.f, 0, 0, 0, 0};
 // LCD object definition
 I2C_LCD_HandleTypeDef lcd;
 
@@ -101,6 +90,7 @@ I2C_LCD_HandleTypeDef lcd;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 void PeriphCommonClock_Config(void);
+static void MPU_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_DMA_Init(void);
 static void MX_I2S2_Init(void);
@@ -131,6 +121,9 @@ int main(void)
 
 
   /* USER CODE END 1 */
+
+  /* MPU Configuration--------------------------------------------------------*/
+  MPU_Config();
 
   /* MCU Configuration--------------------------------------------------------*/
 
@@ -171,12 +164,14 @@ int main(void)
   /* USER CODE BEGIN WHILE */
 
   //DelayInit(&lcd);
-  EchoInit(&lcd);
-
+  EchoInit(&lcd, hi2s2.Init.AudioFreq);
+  FilterEffectInit(&lcd, hi2s2.Init.AudioFreq);
   HAL_TIM_Encoder_Start(&htim1, TIM_CHANNEL_ALL);
   HAL_TIM_Encoder_Start(&htim2, TIM_CHANNEL_ALL);
-  HAL_I2S_Transmit_DMA(&hi2s3, txBuf, SAMPLES*2 );
-  HAL_I2S_Receive_DMA(&hi2s2, rxBuf, SAMPLES*2 );
+  if(HAL_I2S_Transmit_DMA(&hi2s3, txBuf, SAMPLES*2 ) != HAL_OK ||
+  HAL_I2S_Receive_DMA(&hi2s2, rxBuf, SAMPLES*2 ) != HAL_OK){
+	  Error_Handler();
+  }
 
 
 
@@ -236,8 +231,8 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
-  RCC_OscInitStruct.PLL.PLLM = 16;
-  RCC_OscInitStruct.PLL.PLLN = 432;
+  RCC_OscInitStruct.PLL.PLLM = 8;
+  RCC_OscInitStruct.PLL.PLLN = 216;
   RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
   RCC_OscInitStruct.PLL.PLLQ = 2;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
@@ -278,9 +273,9 @@ void PeriphCommonClock_Config(void)
   /** Initializes the peripherals clock
   */
   PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_I2S;
-  PeriphClkInitStruct.PLLI2S.PLLI2SN = 430;
+  PeriphClkInitStruct.PLLI2S.PLLI2SN = 197;
   PeriphClkInitStruct.PLLI2S.PLLI2SP = RCC_PLLP_DIV2;
-  PeriphClkInitStruct.PLLI2S.PLLI2SR = 7;
+  PeriphClkInitStruct.PLLI2S.PLLI2SR = 4;
   PeriphClkInitStruct.PLLI2S.PLLI2SQ = 2;
   PeriphClkInitStruct.PLLI2SDivQ = 1;
   PeriphClkInitStruct.I2sClockSelection = RCC_I2SCLKSOURCE_PLLI2S;
@@ -362,7 +357,7 @@ static void MX_I2S2_Init(void)
   hi2s2.Init.Standard = I2S_STANDARD_PHILIPS;
   hi2s2.Init.DataFormat = I2S_DATAFORMAT_24B;
   hi2s2.Init.MCLKOutput = I2S_MCLKOUTPUT_ENABLE;
-  hi2s2.Init.AudioFreq = I2S_AUDIOFREQ_48K;
+  hi2s2.Init.AudioFreq = I2S_AUDIOFREQ_96K;
   hi2s2.Init.CPOL = I2S_CPOL_LOW;
   hi2s2.Init.ClockSource = I2S_CLOCK_PLL;
   if (HAL_I2S_Init(&hi2s2) != HAL_OK)
@@ -395,7 +390,7 @@ static void MX_I2S3_Init(void)
   hi2s3.Init.Standard = I2S_STANDARD_PHILIPS;
   hi2s3.Init.DataFormat = I2S_DATAFORMAT_24B;
   hi2s3.Init.MCLKOutput = I2S_MCLKOUTPUT_DISABLE;
-  hi2s3.Init.AudioFreq = I2S_AUDIOFREQ_48K;
+  hi2s3.Init.AudioFreq = I2S_AUDIOFREQ_96K;
   hi2s3.Init.CPOL = I2S_CPOL_LOW;
   hi2s3.Init.ClockSource = I2S_CLOCK_PLL;
   if (HAL_I2S_Init(&hi2s3) != HAL_OK)
@@ -429,19 +424,19 @@ static void MX_TIM1_Init(void)
   htim1.Instance = TIM1;
   htim1.Init.Prescaler = 0;
   htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim1.Init.Period = 9999;
-  htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV2;
+  htim1.Init.Period = 65535;
+  htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim1.Init.RepetitionCounter = 0;
   htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   sConfig.EncoderMode = TIM_ENCODERMODE_TI1;
   sConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
   sConfig.IC1Selection = TIM_ICSELECTION_DIRECTTI;
   sConfig.IC1Prescaler = TIM_ICPSC_DIV1;
-  sConfig.IC1Filter = 10;
+  sConfig.IC1Filter = 0;
   sConfig.IC2Polarity = TIM_ICPOLARITY_RISING;
   sConfig.IC2Selection = TIM_ICSELECTION_DIRECTTI;
   sConfig.IC2Prescaler = TIM_ICPSC_DIV1;
-  sConfig.IC2Filter = 10;
+  sConfig.IC2Filter = 0;
   if (HAL_TIM_Encoder_Init(&htim1, &sConfig) != HAL_OK)
   {
     Error_Handler();
@@ -573,31 +568,27 @@ static void MX_GPIO_Init(void)
 /* USER CODE BEGIN 4 */
 static void updateState(){
 	int isModButtonDown = (HAL_GPIO_ReadPin(Button1_GPIO_Port, Button1_Pin) == GPIO_PIN_RESET);
-
+	mState.encoder1Delta = TIM1->CNT - mState.lastEncoderVal1;
+	mState.encoder2Delta = TIM2->CNT - mState.lastEncoderVal2;
+	if(abs(mState.encoder1Delta) > 20 || abs(mState.encoder2Delta) > 20) {
+		mState.lastEncoderVal1 += mState.encoder1Delta;
+		mState.lastEncoderVal2 += mState.encoder2Delta;
+		return;
+	}
 	if(isModButtonDown){
-		int newEncoderVal1 = TIM1->CNT;
-		int encoderDelata1 = newEncoderVal1-state.lastEncoderVal1;
-		int newEncoderVal2 = TIM2->CNT;
-		int encoderDelata2 = newEncoderVal2-state.lastEncoderVal2;
-		if(!state.modButtonDownState || abs(encoderDelata1) > 20 || abs(encoderDelata2) > 20){
-			state.modButtonDownState = 1;
-			state.lastEncoderVal1 = newEncoderVal1;
-			state.lastEncoderVal2 = newEncoderVal2;
-			return;
-		}
-		if(encoderDelata1 !=0){
-			if(state.effectTracker == 1){
-				state.effectTracker = 0;
-				if(encoderDelata1 > 0 && state.currentEffect < NUM_EFFECTS - 1){
-					state.currentEffect = (state.currentEffect + 1);
-				}
-				else if(encoderDelata1 < 0 && state.currentEffect != 0){
-					state.currentEffect = (state.currentEffect - 1);
-				}
-				else{
-					goto endOfPrintUpdate;
-				}
-				switch(state.currentEffect){
+		if(mState.encoder1Delta !=0){
+			if(mState.effectTracker == 0) {
+				mState.effectTracker = 1;
+			} else {
+				mState.effectTracker = 0;
+
+				if(mState.encoder1Delta > 0 && mState.currentEffect < NUM_EFFECTS - 1)
+					mState.currentEffect = (mState.currentEffect + 1);
+
+				else if(mState.encoder1Delta < 0 && mState.currentEffect != 0)
+					mState.currentEffect = (mState.currentEffect - 1);
+
+				switch(mState.currentEffect){
 					case PASS:
 						lcd_clear(&lcd);
 						lcd_puts(&lcd, "No Effect");
@@ -609,43 +600,46 @@ static void updateState(){
 						lcd_clear(&lcd);
 						lcd_puts(&lcd, "Delay");
 						break;
+					case FILTER:
+						FilterEffectPrintInit();
+						break;
 					case NUM_EFFECTS:
 						lcd_clear(&lcd);
 						lcd_puts(&lcd, "NUM_EFFECTS (error)");
 						break;
 				}
 			}
-			else state.effectTracker = 1;
-			endOfPrintUpdate:
-			state.lastEncoderVal1 = newEncoderVal1;
-			state.lastEncoderVal2 = newEncoderVal2;
 		}
-
-		state.volume += encoderDelata2*0.01f;
-		if(state.volume < 0.) state.volume = 0.f;
-		if(state.volume > 1.) state.volume = 1.f;
-
+		if(mState.encoder2Delta != 0){
+			mState.volume += mState.encoder2Delta*0.01f;
+			if(mState.volume < 0.) mState.volume = 0.f;
+			if(mState.volume > 1.) mState.volume = 1.f;
+		}
 	}
 	else{
-		state.modButtonDownState = 0;
-		switch(state.currentEffect){
+		switch(mState.currentEffect){
 			case PASS:
 				break;
 			case ECHO:
-				EchoUpdateState();
+				EchoUpdateState(&mState);
 				break;
 			case DELAY:
+				break;
+			case FILTER:
+				FilterEffectUpdateState(&mState);
 				break;
 			case NUM_EFFECTS:
 				break;
 		}
 
 	}
+	mState.lastEncoderVal1 += mState.encoder1Delta;
+	mState.lastEncoderVal2 += mState.encoder2Delta;
 }
 
 
 static void doEffect(int b){
-	switch(state.currentEffect){
+	switch(mState.currentEffect){
 	case PASS:
 		doPassthru(b);
 		break;
@@ -654,6 +648,9 @@ static void doEffect(int b){
 		break;
 	case DELAY:
 		doPassthru(b);
+		break;
+	case FILTER:
+		doFilterEffect(b);
 		break;
 	case NUM_EFFECTS:
 		doPassthru(b);
@@ -674,7 +671,7 @@ void doPassthru( int b )
 	int i = 0;
 	for ( int pos = startBuf ; pos < endBuf ; pos+=4 )
 	{
-		  srcLeft[i] = ( (rxBuf[pos]<<16)|rxBuf[pos+1] );
+		  srcLeft[i] = ( (rxBuf[pos]<<16)|rxBuf[pos+1]);
 		  srcRight[i] = ( (rxBuf[pos+2]<<16)|rxBuf[pos+3] );
 		  i++;
 	}
@@ -682,8 +679,8 @@ void doPassthru( int b )
 	i = 0;
 	for ( int pos = startBuf ; pos < endBuf ; pos+=4 )
 	  {
-		  int lval = srcLeft[i] ;
-		  int rval = srcRight[i];
+			int lval = srcLeft[i] ;
+			int rval = srcRight[i];
 
 		  txBuf[pos] = (lval>>16)&0xFFFF;
 		  txBuf[pos+1] = lval&0xFFFF;
@@ -739,6 +736,35 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 	  UNUSED(GPIO_Pin);
 }
 /* USER CODE END 4 */
+
+ /* MPU Configuration */
+
+void MPU_Config(void)
+{
+  MPU_Region_InitTypeDef MPU_InitStruct = {0};
+
+  /* Disables the MPU */
+  HAL_MPU_Disable();
+
+  /** Initializes and configures the Region and the memory to be protected
+  */
+  MPU_InitStruct.Enable = MPU_REGION_ENABLE;
+  MPU_InitStruct.Number = MPU_REGION_NUMBER0;
+  MPU_InitStruct.BaseAddress = 0x0;
+  MPU_InitStruct.Size = MPU_REGION_SIZE_4GB;
+  MPU_InitStruct.SubRegionDisable = 0x87;
+  MPU_InitStruct.TypeExtField = MPU_TEX_LEVEL0;
+  MPU_InitStruct.AccessPermission = MPU_REGION_NO_ACCESS;
+  MPU_InitStruct.DisableExec = MPU_INSTRUCTION_ACCESS_DISABLE;
+  MPU_InitStruct.IsShareable = MPU_ACCESS_SHAREABLE;
+  MPU_InitStruct.IsCacheable = MPU_ACCESS_NOT_CACHEABLE;
+  MPU_InitStruct.IsBufferable = MPU_ACCESS_NOT_BUFFERABLE;
+
+  HAL_MPU_ConfigRegion(&MPU_InitStruct);
+  /* Enables the MPU */
+  HAL_MPU_Enable(MPU_PRIVILEGED_DEFAULT);
+
+}
 
 /**
   * @brief  This function is executed in case of error occurrence.

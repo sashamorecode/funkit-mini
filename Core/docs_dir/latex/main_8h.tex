@@ -1,0 +1,191 @@
+\hypertarget{main_8h}{}\doxysection{Inc/main.h File Reference}
+\label{main_8h}\index{Inc/main.h@{Inc/main.h}}
+
+
+\+: Header for \mbox{\hyperlink{main_8c}{main.\+c}} file. This file contains the common defines of the application.  
+
+
+{\ttfamily \#include \char`\"{}stm32f7xx\+\_\+hal.\+h\char`\"{}}\newline
+Include dependency graph for main.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=178pt]{main_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structmasterState}{master\+State}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{main_8h_ad0c329adebc27917fc0a4f51079acf6a}{SAMPLES}}~512
+\item 
+\#define \mbox{\hyperlink{main_8h_a3fb0af62d4d7ddb909bea073d2074eab}{BUF\+\_\+\+SAMPLES}}~\mbox{\hyperlink{main_8h_ad0c329adebc27917fc0a4f51079acf6a}{SAMPLES}} $\ast$ 4
+\item 
+\#define \mbox{\hyperlink{main_8h_acd56eee38d4920650ae2bb5179334fd3}{DELAY\+\_\+\+BUF}}~30000
+\item 
+\#define \mbox{\hyperlink{main_8h_a410f187a367defb3b5792baa239ffbf6}{Encoder\+SW\+\_\+\+Pin}}~GPIO\+\_\+\+PIN\+\_\+0
+\item 
+\#define \mbox{\hyperlink{main_8h_a934c68cb430f11a2ed3970efa0344289}{Encoder\+SW\+\_\+\+GPIO\+\_\+\+Port}}~GPIOG
+\item 
+\#define \mbox{\hyperlink{main_8h_a5ff36741a6856e4c17ca099cbc0fdb8e}{Button1\+\_\+\+Pin}}~GPIO\+\_\+\+PIN\+\_\+1
+\item 
+\#define \mbox{\hyperlink{main_8h_adcd6c40ce56ca990a77e4b3ae69dffd8}{Button1\+\_\+\+GPIO\+\_\+\+Port}}~GPIOG
+\item 
+\#define \mbox{\hyperlink{main_8h_a97c36872e46bc42696155b3ab92eb2bd}{Encoder\+SW2\+\_\+\+Pin}}~GPIO\+\_\+\+PIN\+\_\+1
+\item 
+\#define \mbox{\hyperlink{main_8h_a9481d977f6cfec362e9fc978b74bfc1b}{Encoder\+SW2\+\_\+\+GPIO\+\_\+\+Port}}~GPIOD
+\item 
+\#define \mbox{\hyperlink{main_8h_ae7e629ac7dafd39807024022aedf70db}{STATE\+\_\+\+UPDATE\+\_\+\+DIV}}~100
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{main_8h_a451f7e2ba4d167b23297704192cac8a1}{effect}} \{ \newline
+\mbox{\hyperlink{main_8h_a451f7e2ba4d167b23297704192cac8a1a0afa825567e442a46d131be6c71cb40f}{PASS}}
+, \mbox{\hyperlink{main_8h_a451f7e2ba4d167b23297704192cac8a1a6e074abc1ec6368da315a331ad35c00b}{ECHO}}
+, \mbox{\hyperlink{main_8h_a451f7e2ba4d167b23297704192cac8a1a1debdb60dab652d8ee4ab62c6129f487}{DELAY}}
+, \mbox{\hyperlink{main_8h_a451f7e2ba4d167b23297704192cac8a1a79b28719aca4e2f69cd372a3b7539c45}{FILTER}}
+, \newline
+\mbox{\hyperlink{main_8h_a451f7e2ba4d167b23297704192cac8a1ae05c3fc0b50abe689fec47f47cb0e00e}{NUM\+\_\+\+EFFECTS}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8h_a1730ffe1e560465665eb47d9264826f9}{Error\+\_\+\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em This function is executed in case of error occurrence. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\+: Header for \mbox{\hyperlink{main_8c}{main.\+c}} file. This file contains the common defines of the application. 
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2025 STMicroelectronics. All rights reserved.
+
+This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-\/\+IS. 
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{main_8h_a3fb0af62d4d7ddb909bea073d2074eab}\label{main_8h_a3fb0af62d4d7ddb909bea073d2074eab}} 
+\index{main.h@{main.h}!BUF\_SAMPLES@{BUF\_SAMPLES}}
+\index{BUF\_SAMPLES@{BUF\_SAMPLES}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{BUF\_SAMPLES}{BUF\_SAMPLES}}
+{\footnotesize\ttfamily \#define BUF\+\_\+\+SAMPLES~\mbox{\hyperlink{main_8h_ad0c329adebc27917fc0a4f51079acf6a}{SAMPLES}} $\ast$ 4}
+
+\mbox{\Hypertarget{main_8h_adcd6c40ce56ca990a77e4b3ae69dffd8}\label{main_8h_adcd6c40ce56ca990a77e4b3ae69dffd8}} 
+\index{main.h@{main.h}!Button1\_GPIO\_Port@{Button1\_GPIO\_Port}}
+\index{Button1\_GPIO\_Port@{Button1\_GPIO\_Port}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{Button1\_GPIO\_Port}{Button1\_GPIO\_Port}}
+{\footnotesize\ttfamily \#define Button1\+\_\+\+GPIO\+\_\+\+Port~GPIOG}
+
+\mbox{\Hypertarget{main_8h_a5ff36741a6856e4c17ca099cbc0fdb8e}\label{main_8h_a5ff36741a6856e4c17ca099cbc0fdb8e}} 
+\index{main.h@{main.h}!Button1\_Pin@{Button1\_Pin}}
+\index{Button1\_Pin@{Button1\_Pin}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{Button1\_Pin}{Button1\_Pin}}
+{\footnotesize\ttfamily \#define Button1\+\_\+\+Pin~GPIO\+\_\+\+PIN\+\_\+1}
+
+\mbox{\Hypertarget{main_8h_acd56eee38d4920650ae2bb5179334fd3}\label{main_8h_acd56eee38d4920650ae2bb5179334fd3}} 
+\index{main.h@{main.h}!DELAY\_BUF@{DELAY\_BUF}}
+\index{DELAY\_BUF@{DELAY\_BUF}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{DELAY\_BUF}{DELAY\_BUF}}
+{\footnotesize\ttfamily \#define DELAY\+\_\+\+BUF~30000}
+
+\mbox{\Hypertarget{main_8h_a9481d977f6cfec362e9fc978b74bfc1b}\label{main_8h_a9481d977f6cfec362e9fc978b74bfc1b}} 
+\index{main.h@{main.h}!EncoderSW2\_GPIO\_Port@{EncoderSW2\_GPIO\_Port}}
+\index{EncoderSW2\_GPIO\_Port@{EncoderSW2\_GPIO\_Port}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{EncoderSW2\_GPIO\_Port}{EncoderSW2\_GPIO\_Port}}
+{\footnotesize\ttfamily \#define Encoder\+SW2\+\_\+\+GPIO\+\_\+\+Port~GPIOD}
+
+\mbox{\Hypertarget{main_8h_a97c36872e46bc42696155b3ab92eb2bd}\label{main_8h_a97c36872e46bc42696155b3ab92eb2bd}} 
+\index{main.h@{main.h}!EncoderSW2\_Pin@{EncoderSW2\_Pin}}
+\index{EncoderSW2\_Pin@{EncoderSW2\_Pin}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{EncoderSW2\_Pin}{EncoderSW2\_Pin}}
+{\footnotesize\ttfamily \#define Encoder\+SW2\+\_\+\+Pin~GPIO\+\_\+\+PIN\+\_\+1}
+
+\mbox{\Hypertarget{main_8h_a934c68cb430f11a2ed3970efa0344289}\label{main_8h_a934c68cb430f11a2ed3970efa0344289}} 
+\index{main.h@{main.h}!EncoderSW\_GPIO\_Port@{EncoderSW\_GPIO\_Port}}
+\index{EncoderSW\_GPIO\_Port@{EncoderSW\_GPIO\_Port}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{EncoderSW\_GPIO\_Port}{EncoderSW\_GPIO\_Port}}
+{\footnotesize\ttfamily \#define Encoder\+SW\+\_\+\+GPIO\+\_\+\+Port~GPIOG}
+
+\mbox{\Hypertarget{main_8h_a410f187a367defb3b5792baa239ffbf6}\label{main_8h_a410f187a367defb3b5792baa239ffbf6}} 
+\index{main.h@{main.h}!EncoderSW\_Pin@{EncoderSW\_Pin}}
+\index{EncoderSW\_Pin@{EncoderSW\_Pin}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{EncoderSW\_Pin}{EncoderSW\_Pin}}
+{\footnotesize\ttfamily \#define Encoder\+SW\+\_\+\+Pin~GPIO\+\_\+\+PIN\+\_\+0}
+
+\mbox{\Hypertarget{main_8h_ad0c329adebc27917fc0a4f51079acf6a}\label{main_8h_ad0c329adebc27917fc0a4f51079acf6a}} 
+\index{main.h@{main.h}!SAMPLES@{SAMPLES}}
+\index{SAMPLES@{SAMPLES}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{SAMPLES}{SAMPLES}}
+{\footnotesize\ttfamily \#define SAMPLES~512}
+
+\mbox{\Hypertarget{main_8h_ae7e629ac7dafd39807024022aedf70db}\label{main_8h_ae7e629ac7dafd39807024022aedf70db}} 
+\index{main.h@{main.h}!STATE\_UPDATE\_DIV@{STATE\_UPDATE\_DIV}}
+\index{STATE\_UPDATE\_DIV@{STATE\_UPDATE\_DIV}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{STATE\_UPDATE\_DIV}{STATE\_UPDATE\_DIV}}
+{\footnotesize\ttfamily \#define STATE\+\_\+\+UPDATE\+\_\+\+DIV~100}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{main_8h_a451f7e2ba4d167b23297704192cac8a1}\label{main_8h_a451f7e2ba4d167b23297704192cac8a1}} 
+\index{main.h@{main.h}!effect@{effect}}
+\index{effect@{effect}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{effect}{effect}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{main_8h_a451f7e2ba4d167b23297704192cac8a1}{effect}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PASS@{PASS}!main.h@{main.h}}\index{main.h@{main.h}!PASS@{PASS}}}\mbox{\Hypertarget{main_8h_a451f7e2ba4d167b23297704192cac8a1a0afa825567e442a46d131be6c71cb40f}\label{main_8h_a451f7e2ba4d167b23297704192cac8a1a0afa825567e442a46d131be6c71cb40f}} 
+PASS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ECHO@{ECHO}!main.h@{main.h}}\index{main.h@{main.h}!ECHO@{ECHO}}}\mbox{\Hypertarget{main_8h_a451f7e2ba4d167b23297704192cac8a1a6e074abc1ec6368da315a331ad35c00b}\label{main_8h_a451f7e2ba4d167b23297704192cac8a1a6e074abc1ec6368da315a331ad35c00b}} 
+ECHO&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DELAY@{DELAY}!main.h@{main.h}}\index{main.h@{main.h}!DELAY@{DELAY}}}\mbox{\Hypertarget{main_8h_a451f7e2ba4d167b23297704192cac8a1a1debdb60dab652d8ee4ab62c6129f487}\label{main_8h_a451f7e2ba4d167b23297704192cac8a1a1debdb60dab652d8ee4ab62c6129f487}} 
+DELAY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FILTER@{FILTER}!main.h@{main.h}}\index{main.h@{main.h}!FILTER@{FILTER}}}\mbox{\Hypertarget{main_8h_a451f7e2ba4d167b23297704192cac8a1a79b28719aca4e2f69cd372a3b7539c45}\label{main_8h_a451f7e2ba4d167b23297704192cac8a1a79b28719aca4e2f69cd372a3b7539c45}} 
+FILTER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUM\_EFFECTS@{NUM\_EFFECTS}!main.h@{main.h}}\index{main.h@{main.h}!NUM\_EFFECTS@{NUM\_EFFECTS}}}\mbox{\Hypertarget{main_8h_a451f7e2ba4d167b23297704192cac8a1ae05c3fc0b50abe689fec47f47cb0e00e}\label{main_8h_a451f7e2ba4d167b23297704192cac8a1ae05c3fc0b50abe689fec47f47cb0e00e}} 
+NUM\+\_\+\+EFFECTS&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8h_a1730ffe1e560465665eb47d9264826f9}\label{main_8h_a1730ffe1e560465665eb47d9264826f9}} 
+\index{main.h@{main.h}!Error\_Handler@{Error\_Handler}}
+\index{Error\_Handler@{Error\_Handler}!main.h@{main.h}}
+\doxysubsubsection{\texorpdfstring{Error\_Handler()}{Error\_Handler()}}
+{\footnotesize\ttfamily void Error\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function is executed in case of error occurrence. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}

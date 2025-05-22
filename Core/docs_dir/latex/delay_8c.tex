@@ -1,0 +1,148 @@
+\hypertarget{delay_8c}{}\doxysection{Src/delay.c File Reference}
+\label{delay_8c}\index{Src/delay.c@{Src/delay.c}}
+{\ttfamily \#include \char`\"{}delay.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$arm\+\_\+math.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+Include dependency graph for delay.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{delay_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{delay_8c_a100781787a69a2942806b1d566e26b5d}{Delay\+Init}} (\mbox{\hyperlink{structI2C__LCD__HandleTypeDef}{I2\+C\+\_\+\+LCD\+\_\+\+Handle\+Type\+Def}} $\ast$lcd\+Handler)
+\item 
+void \mbox{\hyperlink{delay_8c_ad0e3f2fe08a74cb5ffac8fa0babd6fec}{do\+Delay}} (int b)
+\item 
+void \mbox{\hyperlink{delay_8c_a21ca9497c6e3527188058435c8a70f66}{Delay\+Update\+State}} ()
+\item 
+void \mbox{\hyperlink{delay_8c_a5823aaca2baa19e7fd16e4053efa4d1a}{Delay\+Print\+Init}} ()
+\item 
+void \mbox{\hyperlink{delay_8c_a8788058a4a4063625dee1dc78ba78d46}{Delay\+Print\+State}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{delay_8c_a089976fd4e363bd583ff326c2725d5e6}{rx\+Buf}} \mbox{[}\mbox{\hyperlink{main_8h_a3fb0af62d4d7ddb909bea073d2074eab}{BUF\+\_\+\+SAMPLES}}\mbox{]}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{delay_8c_a589955503f0c5878244bbd9b10929ebb}{tx\+Buf}} \mbox{[}\mbox{\hyperlink{main_8h_a3fb0af62d4d7ddb909bea073d2074eab}{BUF\+\_\+\+SAMPLES}}\mbox{]}
+\item 
+int32\+\_\+t \mbox{\hyperlink{delay_8c_a76ad392cd72c3685d01c737f3d63ff6b}{src\+Left}} \mbox{[}\mbox{\hyperlink{main_8h_ad0c329adebc27917fc0a4f51079acf6a}{SAMPLES}}/2\mbox{]}
+\item 
+int32\+\_\+t \mbox{\hyperlink{delay_8c_a99b88d7d4d9ed39e3d525a6ec3b066c0}{src\+Right}} \mbox{[}\mbox{\hyperlink{main_8h_ad0c329adebc27917fc0a4f51079acf6a}{SAMPLES}}/2\mbox{]}
+\item 
+int32\+\_\+t \mbox{\hyperlink{delay_8c_a0401303dd0a502b20ad9f708325d97d6}{dest\+Left}} \mbox{[}\mbox{\hyperlink{main_8h_ad0c329adebc27917fc0a4f51079acf6a}{SAMPLES}}/2\mbox{]}
+\item 
+int32\+\_\+t \mbox{\hyperlink{delay_8c_a8d91c4b19b83832c720d4a71483efd27}{dest\+Right}} \mbox{[}\mbox{\hyperlink{main_8h_ad0c329adebc27917fc0a4f51079acf6a}{SAMPLES}}/2\mbox{]}
+\item 
+float32\+\_\+t \mbox{\hyperlink{delay_8c_ab77f580f55750cae1adf5c490b2c296d}{delay\+Left}} \mbox{[}\mbox{\hyperlink{main_8h_acd56eee38d4920650ae2bb5179334fd3}{DELAY\+\_\+\+BUF}}\mbox{]}
+\item 
+float32\+\_\+t \mbox{\hyperlink{delay_8c_a59d241fd6bb8a204e46d24adf6b08d34}{delay\+Right}} \mbox{[}\mbox{\hyperlink{main_8h_acd56eee38d4920650ae2bb5179334fd3}{DELAY\+\_\+\+BUF}}\mbox{]}
+\item 
+volatile int \mbox{\hyperlink{delay_8c_aaecbef5452c97b46552fde4d726ea6b3}{delay\+Ptr}}
+\item 
+\mbox{\hyperlink{structdelayState}{delay\+State}} \mbox{\hyperlink{delay_8c_addf3bd3e3929ff072000f2bcc2704dea}{d\+State}} = \{5000,0.,0,0\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{delay_8c_a100781787a69a2942806b1d566e26b5d}\label{delay_8c_a100781787a69a2942806b1d566e26b5d}} 
+\index{delay.c@{delay.c}!DelayInit@{DelayInit}}
+\index{DelayInit@{DelayInit}!delay.c@{delay.c}}
+\doxysubsubsection{\texorpdfstring{DelayInit()}{DelayInit()}}
+{\footnotesize\ttfamily void Delay\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structI2C__LCD__HandleTypeDef}{I2\+C\+\_\+\+LCD\+\_\+\+Handle\+Type\+Def}} $\ast$}]{lcd\+Handler }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{delay_8c_a5823aaca2baa19e7fd16e4053efa4d1a}\label{delay_8c_a5823aaca2baa19e7fd16e4053efa4d1a}} 
+\index{delay.c@{delay.c}!DelayPrintInit@{DelayPrintInit}}
+\index{DelayPrintInit@{DelayPrintInit}!delay.c@{delay.c}}
+\doxysubsubsection{\texorpdfstring{DelayPrintInit()}{DelayPrintInit()}}
+{\footnotesize\ttfamily void Delay\+Print\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{delay_8c_a8788058a4a4063625dee1dc78ba78d46}\label{delay_8c_a8788058a4a4063625dee1dc78ba78d46}} 
+\index{delay.c@{delay.c}!DelayPrintState@{DelayPrintState}}
+\index{DelayPrintState@{DelayPrintState}!delay.c@{delay.c}}
+\doxysubsubsection{\texorpdfstring{DelayPrintState()}{DelayPrintState()}}
+{\footnotesize\ttfamily void Delay\+Print\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{delay_8c_a21ca9497c6e3527188058435c8a70f66}\label{delay_8c_a21ca9497c6e3527188058435c8a70f66}} 
+\index{delay.c@{delay.c}!DelayUpdateState@{DelayUpdateState}}
+\index{DelayUpdateState@{DelayUpdateState}!delay.c@{delay.c}}
+\doxysubsubsection{\texorpdfstring{DelayUpdateState()}{DelayUpdateState()}}
+{\footnotesize\ttfamily void Delay\+Update\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{delay_8c_ad0e3f2fe08a74cb5ffac8fa0babd6fec}\label{delay_8c_ad0e3f2fe08a74cb5ffac8fa0babd6fec}} 
+\index{delay.c@{delay.c}!doDelay@{doDelay}}
+\index{doDelay@{doDelay}!delay.c@{delay.c}}
+\doxysubsubsection{\texorpdfstring{doDelay()}{doDelay()}}
+{\footnotesize\ttfamily void do\+Delay (\begin{DoxyParamCaption}\item[{int}]{b }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{delay_8c_ab77f580f55750cae1adf5c490b2c296d}\label{delay_8c_ab77f580f55750cae1adf5c490b2c296d}} 
+\index{delay.c@{delay.c}!delayLeft@{delayLeft}}
+\index{delayLeft@{delayLeft}!delay.c@{delay.c}}
+\doxysubsubsection{\texorpdfstring{delayLeft}{delayLeft}}
+{\footnotesize\ttfamily float32\+\_\+t delay\+Left\mbox{[}\mbox{\hyperlink{main_8h_acd56eee38d4920650ae2bb5179334fd3}{DELAY\+\_\+\+BUF}}\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{delay_8c_aaecbef5452c97b46552fde4d726ea6b3}\label{delay_8c_aaecbef5452c97b46552fde4d726ea6b3}} 
+\index{delay.c@{delay.c}!delayPtr@{delayPtr}}
+\index{delayPtr@{delayPtr}!delay.c@{delay.c}}
+\doxysubsubsection{\texorpdfstring{delayPtr}{delayPtr}}
+{\footnotesize\ttfamily volatile int delay\+Ptr\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{delay_8c_a59d241fd6bb8a204e46d24adf6b08d34}\label{delay_8c_a59d241fd6bb8a204e46d24adf6b08d34}} 
+\index{delay.c@{delay.c}!delayRight@{delayRight}}
+\index{delayRight@{delayRight}!delay.c@{delay.c}}
+\doxysubsubsection{\texorpdfstring{delayRight}{delayRight}}
+{\footnotesize\ttfamily float32\+\_\+t delay\+Right\mbox{[}\mbox{\hyperlink{main_8h_acd56eee38d4920650ae2bb5179334fd3}{DELAY\+\_\+\+BUF}}\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{delay_8c_a0401303dd0a502b20ad9f708325d97d6}\label{delay_8c_a0401303dd0a502b20ad9f708325d97d6}} 
+\index{delay.c@{delay.c}!destLeft@{destLeft}}
+\index{destLeft@{destLeft}!delay.c@{delay.c}}
+\doxysubsubsection{\texorpdfstring{destLeft}{destLeft}}
+{\footnotesize\ttfamily int32\+\_\+t dest\+Left\mbox{[}\mbox{\hyperlink{main_8h_ad0c329adebc27917fc0a4f51079acf6a}{SAMPLES}}/2\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{delay_8c_a8d91c4b19b83832c720d4a71483efd27}\label{delay_8c_a8d91c4b19b83832c720d4a71483efd27}} 
+\index{delay.c@{delay.c}!destRight@{destRight}}
+\index{destRight@{destRight}!delay.c@{delay.c}}
+\doxysubsubsection{\texorpdfstring{destRight}{destRight}}
+{\footnotesize\ttfamily int32\+\_\+t dest\+Right\mbox{[}\mbox{\hyperlink{main_8h_ad0c329adebc27917fc0a4f51079acf6a}{SAMPLES}}/2\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{delay_8c_addf3bd3e3929ff072000f2bcc2704dea}\label{delay_8c_addf3bd3e3929ff072000f2bcc2704dea}} 
+\index{delay.c@{delay.c}!dState@{dState}}
+\index{dState@{dState}!delay.c@{delay.c}}
+\doxysubsubsection{\texorpdfstring{dState}{dState}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structdelayState}{delay\+State}} d\+State = \{5000,0.,0,0\}}
+
+\mbox{\Hypertarget{delay_8c_a089976fd4e363bd583ff326c2725d5e6}\label{delay_8c_a089976fd4e363bd583ff326c2725d5e6}} 
+\index{delay.c@{delay.c}!rxBuf@{rxBuf}}
+\index{rxBuf@{rxBuf}!delay.c@{delay.c}}
+\doxysubsubsection{\texorpdfstring{rxBuf}{rxBuf}}
+{\footnotesize\ttfamily uint16\+\_\+t rx\+Buf\mbox{[}\mbox{\hyperlink{main_8h_a3fb0af62d4d7ddb909bea073d2074eab}{BUF\+\_\+\+SAMPLES}}\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{delay_8c_a76ad392cd72c3685d01c737f3d63ff6b}\label{delay_8c_a76ad392cd72c3685d01c737f3d63ff6b}} 
+\index{delay.c@{delay.c}!srcLeft@{srcLeft}}
+\index{srcLeft@{srcLeft}!delay.c@{delay.c}}
+\doxysubsubsection{\texorpdfstring{srcLeft}{srcLeft}}
+{\footnotesize\ttfamily int32\+\_\+t src\+Left\mbox{[}\mbox{\hyperlink{main_8h_ad0c329adebc27917fc0a4f51079acf6a}{SAMPLES}}/2\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{delay_8c_a99b88d7d4d9ed39e3d525a6ec3b066c0}\label{delay_8c_a99b88d7d4d9ed39e3d525a6ec3b066c0}} 
+\index{delay.c@{delay.c}!srcRight@{srcRight}}
+\index{srcRight@{srcRight}!delay.c@{delay.c}}
+\doxysubsubsection{\texorpdfstring{srcRight}{srcRight}}
+{\footnotesize\ttfamily int32\+\_\+t src\+Right\mbox{[}\mbox{\hyperlink{main_8h_ad0c329adebc27917fc0a4f51079acf6a}{SAMPLES}}/2\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{delay_8c_a589955503f0c5878244bbd9b10929ebb}\label{delay_8c_a589955503f0c5878244bbd9b10929ebb}} 
+\index{delay.c@{delay.c}!txBuf@{txBuf}}
+\index{txBuf@{txBuf}!delay.c@{delay.c}}
+\doxysubsubsection{\texorpdfstring{txBuf}{txBuf}}
+{\footnotesize\ttfamily uint16\+\_\+t tx\+Buf\mbox{[}\mbox{\hyperlink{main_8h_a3fb0af62d4d7ddb909bea073d2074eab}{BUF\+\_\+\+SAMPLES}}\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+

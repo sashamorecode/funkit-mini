@@ -1,0 +1,336 @@
+\hypertarget{main_8c}{}\doxysection{Src/main.c File Reference}
+\label{main_8c}\index{Src/main.c@{Src/main.c}}
+
+
+\+: Main program body  
+
+
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$arm\+\_\+math.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}i2c\+\_\+lcd.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}delay.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}echo.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}filter\+\_\+effect.\+h\char`\"{}}\newline
+Include dependency graph for main.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8c_a70af21c671abfcc773614a9a4f63d920}{System\+Clock\+\_\+\+Config}} (void)
+\begin{DoxyCompactList}\small\item\em System Clock Configuration. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_a336c5acb34a801b2984e602b97ed7b73}{Periph\+Common\+Clock\+\_\+\+Config}} (void)
+\begin{DoxyCompactList}\small\item\em Peripherals Common Clock Configuration. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_a97aefd070a83483729c3fa07b2bc517a}{do\+Passthru}} (int b)
+\item 
+int \mbox{\hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\begin{DoxyCompactList}\small\item\em The application entry point. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8c_a1ef4021384eddbd41ca60454a2483bf3}{HAL\+\_\+\+I2\+S\+\_\+\+Tx\+Cplt\+Callback}} (I2\+S\+\_\+\+Handle\+Type\+Def $\ast$hi2s)
+\item 
+void \mbox{\hyperlink{main_8c_a18c33b2d429b06674ec30e5b2b81862c}{HAL\+\_\+\+I2\+S\+\_\+\+Rx\+Cplt\+Callback}} (I2\+S\+\_\+\+Handle\+Type\+Def $\ast$hi2s)
+\item 
+void \mbox{\hyperlink{main_8c_a5bef3c73683b81e822368c9029e495bc}{HAL\+\_\+\+I2\+S\+\_\+\+Tx\+Half\+Cplt\+Callback}} (I2\+S\+\_\+\+Handle\+Type\+Def $\ast$hi2s)
+\item 
+void \mbox{\hyperlink{main_8c_a6c4cd3b18c42c6de0c3f4fe7068a5b12}{HAL\+\_\+\+I2\+S\+\_\+\+Rx\+Half\+Cplt\+Callback}} (I2\+S\+\_\+\+Handle\+Type\+Def $\ast$hi2s)
+\item 
+void \mbox{\hyperlink{main_8c_a0cd91fd3a9608559c2a87a8ba6cba55f}{HAL\+\_\+\+GPIO\+\_\+\+EXTI\+\_\+\+Callback}} (uint16\+\_\+t GPIO\+\_\+\+Pin)
+\item 
+void \mbox{\hyperlink{main_8c_a1730ffe1e560465665eb47d9264826f9}{Error\+\_\+\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em This function is executed in case of error occurrence. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+I2\+C\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{main_8c_af7b2c26e44dadaaa798a5c3d82914ba7}{hi2c1}}
+\item 
+I2\+S\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{main_8c_a02293d2a85dbf1243e6641da56bc903e}{hi2s2}}
+\item 
+I2\+S\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{main_8c_a42cb7a8588778f08bf78b1cb4757169c}{hi2s3}}
+\item 
+DMA\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{main_8c_abe50191cba67fd4af93c490865bca7d5}{hdma\+\_\+spi2\+\_\+rx}}
+\item 
+DMA\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{main_8c_ada9e557b4bc4b31abfeff7c4eb4c7bed}{hdma\+\_\+spi3\+\_\+tx}}
+\item 
+TIM\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{main_8c_a25fc663547539bc49fecc0011bd76ab5}{htim1}}
+\item 
+TIM\+\_\+\+Handle\+Type\+Def \mbox{\hyperlink{main_8c_a2c80fd5510e2990a59a5c90d745c716c}{htim2}}
+\item 
+volatile int \mbox{\hyperlink{main_8c_afbdf34c1cb7d057f9afb3d3f936f8d70}{rx\+Half\+Complete}} = 0
+\item 
+volatile int \mbox{\hyperlink{main_8c_a89ed241ca7f2363bf697ffa0381d3fac}{tx\+Half\+Complete}} = 0
+\item 
+volatile int \mbox{\hyperlink{main_8c_a10c77bb7b82ff147480b5975e9fde938}{rx\+Full\+Complete}} = 0
+\item 
+volatile int \mbox{\hyperlink{main_8c_a5c929fa6ca57776d2f5b592bef506e41}{tx\+Full\+Complete}} = 0
+\item 
+volatile int \mbox{\hyperlink{main_8c_ab2397931db5121f0514404ab131bf6f4}{state\+Update\+Counter}} = 0
+\item 
+uint16\+\_\+t \mbox{\hyperlink{main_8c_a089976fd4e363bd583ff326c2725d5e6}{rx\+Buf}} \mbox{[}\mbox{\hyperlink{main_8h_a3fb0af62d4d7ddb909bea073d2074eab}{BUF\+\_\+\+SAMPLES}}\mbox{]}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{main_8c_a589955503f0c5878244bbd9b10929ebb}{tx\+Buf}} \mbox{[}\mbox{\hyperlink{main_8h_a3fb0af62d4d7ddb909bea073d2074eab}{BUF\+\_\+\+SAMPLES}}\mbox{]}
+\item 
+float32\+\_\+t \mbox{\hyperlink{main_8c_a58b2dc7112dc6e4ebbaa4715a3905e4f}{src\+Left}} \mbox{[}\mbox{\hyperlink{main_8h_ad0c329adebc27917fc0a4f51079acf6a}{SAMPLES}}/2\mbox{]}
+\item 
+float32\+\_\+t \mbox{\hyperlink{main_8c_accd09377d2db29645101e1e8d66b9724}{src\+Right}} \mbox{[}\mbox{\hyperlink{main_8h_ad0c329adebc27917fc0a4f51079acf6a}{SAMPLES}}/2\mbox{]}
+\item 
+float32\+\_\+t \mbox{\hyperlink{main_8c_aee0b84c051e5b9273e5a990de29b1f61}{dest\+Left}} \mbox{[}\mbox{\hyperlink{main_8h_ad0c329adebc27917fc0a4f51079acf6a}{SAMPLES}}/2\mbox{]}
+\item 
+float32\+\_\+t \mbox{\hyperlink{main_8c_ad0700faacec49ba7288ed6683623f77d}{dest\+Right}} \mbox{[}\mbox{\hyperlink{main_8h_ad0c329adebc27917fc0a4f51079acf6a}{SAMPLES}}/2\mbox{]}
+\item 
+volatile int \mbox{\hyperlink{main_8c_aaecbef5452c97b46552fde4d726ea6b3}{delay\+Ptr}} = 0
+\item 
+\mbox{\hyperlink{structmasterState}{master\+State}} \mbox{\hyperlink{main_8c_acb411d8d98891d8a57f6ebeb99025ef4}{m\+State}} = \{\mbox{\hyperlink{main_8h_a451f7e2ba4d167b23297704192cac8a1a0afa825567e442a46d131be6c71cb40f}{PASS}}, 0, 1.f, 0, 0, 0, 0\}
+\item 
+\mbox{\hyperlink{structI2C__LCD__HandleTypeDef}{I2\+C\+\_\+\+LCD\+\_\+\+Handle\+Type\+Def}} \mbox{\hyperlink{main_8c_a8e4e0925e0cf37d4bd014d84d85ad9e0}{lcd}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\+: Main program body 
+
+\begin{DoxyAttention}{Attention}
+
+\end{DoxyAttention}
+Copyright (c) 2025 STMicroelectronics. All rights reserved.
+
+This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-\/\+IS. 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8c_a97aefd070a83483729c3fa07b2bc517a}\label{main_8c_a97aefd070a83483729c3fa07b2bc517a}} 
+\index{main.c@{main.c}!doPassthru@{doPassthru}}
+\index{doPassthru@{doPassthru}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{doPassthru()}{doPassthru()}}
+{\footnotesize\ttfamily void do\+Passthru (\begin{DoxyParamCaption}\item[{int}]{b }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{main_8c_a1730ffe1e560465665eb47d9264826f9}\label{main_8c_a1730ffe1e560465665eb47d9264826f9}} 
+\index{main.c@{main.c}!Error\_Handler@{Error\_Handler}}
+\index{Error\_Handler@{Error\_Handler}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{Error\_Handler()}{Error\_Handler()}}
+{\footnotesize\ttfamily void Error\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+This function is executed in case of error occurrence. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{main_8c_a0cd91fd3a9608559c2a87a8ba6cba55f}\label{main_8c_a0cd91fd3a9608559c2a87a8ba6cba55f}} 
+\index{main.c@{main.c}!HAL\_GPIO\_EXTI\_Callback@{HAL\_GPIO\_EXTI\_Callback}}
+\index{HAL\_GPIO\_EXTI\_Callback@{HAL\_GPIO\_EXTI\_Callback}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{HAL\_GPIO\_EXTI\_Callback()}{HAL\_GPIO\_EXTI\_Callback()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+GPIO\+\_\+\+EXTI\+\_\+\+Callback (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{GPIO\+\_\+\+Pin }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{main_8c_a18c33b2d429b06674ec30e5b2b81862c}\label{main_8c_a18c33b2d429b06674ec30e5b2b81862c}} 
+\index{main.c@{main.c}!HAL\_I2S\_RxCpltCallback@{HAL\_I2S\_RxCpltCallback}}
+\index{HAL\_I2S\_RxCpltCallback@{HAL\_I2S\_RxCpltCallback}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{HAL\_I2S\_RxCpltCallback()}{HAL\_I2S\_RxCpltCallback()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+I2\+S\+\_\+\+Rx\+Cplt\+Callback (\begin{DoxyParamCaption}\item[{I2\+S\+\_\+\+Handle\+Type\+Def $\ast$}]{hi2s }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{main_8c_a6c4cd3b18c42c6de0c3f4fe7068a5b12}\label{main_8c_a6c4cd3b18c42c6de0c3f4fe7068a5b12}} 
+\index{main.c@{main.c}!HAL\_I2S\_RxHalfCpltCallback@{HAL\_I2S\_RxHalfCpltCallback}}
+\index{HAL\_I2S\_RxHalfCpltCallback@{HAL\_I2S\_RxHalfCpltCallback}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{HAL\_I2S\_RxHalfCpltCallback()}{HAL\_I2S\_RxHalfCpltCallback()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+I2\+S\+\_\+\+Rx\+Half\+Cplt\+Callback (\begin{DoxyParamCaption}\item[{I2\+S\+\_\+\+Handle\+Type\+Def $\ast$}]{hi2s }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{main_8c_a1ef4021384eddbd41ca60454a2483bf3}\label{main_8c_a1ef4021384eddbd41ca60454a2483bf3}} 
+\index{main.c@{main.c}!HAL\_I2S\_TxCpltCallback@{HAL\_I2S\_TxCpltCallback}}
+\index{HAL\_I2S\_TxCpltCallback@{HAL\_I2S\_TxCpltCallback}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{HAL\_I2S\_TxCpltCallback()}{HAL\_I2S\_TxCpltCallback()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+I2\+S\+\_\+\+Tx\+Cplt\+Callback (\begin{DoxyParamCaption}\item[{I2\+S\+\_\+\+Handle\+Type\+Def $\ast$}]{hi2s }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{main_8c_a5bef3c73683b81e822368c9029e495bc}\label{main_8c_a5bef3c73683b81e822368c9029e495bc}} 
+\index{main.c@{main.c}!HAL\_I2S\_TxHalfCpltCallback@{HAL\_I2S\_TxHalfCpltCallback}}
+\index{HAL\_I2S\_TxHalfCpltCallback@{HAL\_I2S\_TxHalfCpltCallback}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{HAL\_I2S\_TxHalfCpltCallback()}{HAL\_I2S\_TxHalfCpltCallback()}}
+{\footnotesize\ttfamily void HAL\+\_\+\+I2\+S\+\_\+\+Tx\+Half\+Cplt\+Callback (\begin{DoxyParamCaption}\item[{I2\+S\+\_\+\+Handle\+Type\+Def $\ast$}]{hi2s }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{main_8c_a840291bc02cba5474a4cb46a9b9566fe}\label{main_8c_a840291bc02cba5474a4cb46a9b9566fe}} 
+\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+The application entry point. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em int} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{main_8c_a336c5acb34a801b2984e602b97ed7b73}\label{main_8c_a336c5acb34a801b2984e602b97ed7b73}} 
+\index{main.c@{main.c}!PeriphCommonClock\_Config@{PeriphCommonClock\_Config}}
+\index{PeriphCommonClock\_Config@{PeriphCommonClock\_Config}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{PeriphCommonClock\_Config()}{PeriphCommonClock\_Config()}}
+{\footnotesize\ttfamily void Periph\+Common\+Clock\+\_\+\+Config (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Peripherals Common Clock Configuration. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+Initializes the peripherals clock\mbox{\Hypertarget{main_8c_a70af21c671abfcc773614a9a4f63d920}\label{main_8c_a70af21c671abfcc773614a9a4f63d920}} 
+\index{main.c@{main.c}!SystemClock\_Config@{SystemClock\_Config}}
+\index{SystemClock\_Config@{SystemClock\_Config}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{SystemClock\_Config()}{SystemClock\_Config()}}
+{\footnotesize\ttfamily void System\+Clock\+\_\+\+Config (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+System Clock Configuration. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+Configure the main internal regulator output voltage
+
+Initializes the RCC Oscillators according to the specified parameters in the RCC\+\_\+\+Osc\+Init\+Type\+Def structure.
+
+Activate the Over-\/\+Drive mode
+
+Initializes the CPU, AHB and APB buses clocks
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{main_8c_aaecbef5452c97b46552fde4d726ea6b3}\label{main_8c_aaecbef5452c97b46552fde4d726ea6b3}} 
+\index{main.c@{main.c}!delayPtr@{delayPtr}}
+\index{delayPtr@{delayPtr}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{delayPtr}{delayPtr}}
+{\footnotesize\ttfamily volatile int delay\+Ptr = 0}
+
+\mbox{\Hypertarget{main_8c_aee0b84c051e5b9273e5a990de29b1f61}\label{main_8c_aee0b84c051e5b9273e5a990de29b1f61}} 
+\index{main.c@{main.c}!destLeft@{destLeft}}
+\index{destLeft@{destLeft}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{destLeft}{destLeft}}
+{\footnotesize\ttfamily float32\+\_\+t dest\+Left\mbox{[}\mbox{\hyperlink{main_8h_ad0c329adebc27917fc0a4f51079acf6a}{SAMPLES}}/2\mbox{]}}
+
+\mbox{\Hypertarget{main_8c_ad0700faacec49ba7288ed6683623f77d}\label{main_8c_ad0700faacec49ba7288ed6683623f77d}} 
+\index{main.c@{main.c}!destRight@{destRight}}
+\index{destRight@{destRight}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{destRight}{destRight}}
+{\footnotesize\ttfamily float32\+\_\+t dest\+Right\mbox{[}\mbox{\hyperlink{main_8h_ad0c329adebc27917fc0a4f51079acf6a}{SAMPLES}}/2\mbox{]}}
+
+\mbox{\Hypertarget{main_8c_abe50191cba67fd4af93c490865bca7d5}\label{main_8c_abe50191cba67fd4af93c490865bca7d5}} 
+\index{main.c@{main.c}!hdma\_spi2\_rx@{hdma\_spi2\_rx}}
+\index{hdma\_spi2\_rx@{hdma\_spi2\_rx}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{hdma\_spi2\_rx}{hdma\_spi2\_rx}}
+{\footnotesize\ttfamily DMA\+\_\+\+Handle\+Type\+Def hdma\+\_\+spi2\+\_\+rx}
+
+\mbox{\Hypertarget{main_8c_ada9e557b4bc4b31abfeff7c4eb4c7bed}\label{main_8c_ada9e557b4bc4b31abfeff7c4eb4c7bed}} 
+\index{main.c@{main.c}!hdma\_spi3\_tx@{hdma\_spi3\_tx}}
+\index{hdma\_spi3\_tx@{hdma\_spi3\_tx}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{hdma\_spi3\_tx}{hdma\_spi3\_tx}}
+{\footnotesize\ttfamily DMA\+\_\+\+Handle\+Type\+Def hdma\+\_\+spi3\+\_\+tx}
+
+\mbox{\Hypertarget{main_8c_af7b2c26e44dadaaa798a5c3d82914ba7}\label{main_8c_af7b2c26e44dadaaa798a5c3d82914ba7}} 
+\index{main.c@{main.c}!hi2c1@{hi2c1}}
+\index{hi2c1@{hi2c1}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{hi2c1}{hi2c1}}
+{\footnotesize\ttfamily I2\+C\+\_\+\+Handle\+Type\+Def hi2c1}
+
+\mbox{\Hypertarget{main_8c_a02293d2a85dbf1243e6641da56bc903e}\label{main_8c_a02293d2a85dbf1243e6641da56bc903e}} 
+\index{main.c@{main.c}!hi2s2@{hi2s2}}
+\index{hi2s2@{hi2s2}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{hi2s2}{hi2s2}}
+{\footnotesize\ttfamily I2\+S\+\_\+\+Handle\+Type\+Def hi2s2}
+
+\mbox{\Hypertarget{main_8c_a42cb7a8588778f08bf78b1cb4757169c}\label{main_8c_a42cb7a8588778f08bf78b1cb4757169c}} 
+\index{main.c@{main.c}!hi2s3@{hi2s3}}
+\index{hi2s3@{hi2s3}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{hi2s3}{hi2s3}}
+{\footnotesize\ttfamily I2\+S\+\_\+\+Handle\+Type\+Def hi2s3}
+
+\mbox{\Hypertarget{main_8c_a25fc663547539bc49fecc0011bd76ab5}\label{main_8c_a25fc663547539bc49fecc0011bd76ab5}} 
+\index{main.c@{main.c}!htim1@{htim1}}
+\index{htim1@{htim1}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{htim1}{htim1}}
+{\footnotesize\ttfamily TIM\+\_\+\+Handle\+Type\+Def htim1}
+
+\mbox{\Hypertarget{main_8c_a2c80fd5510e2990a59a5c90d745c716c}\label{main_8c_a2c80fd5510e2990a59a5c90d745c716c}} 
+\index{main.c@{main.c}!htim2@{htim2}}
+\index{htim2@{htim2}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{htim2}{htim2}}
+{\footnotesize\ttfamily TIM\+\_\+\+Handle\+Type\+Def htim2}
+
+\mbox{\Hypertarget{main_8c_a8e4e0925e0cf37d4bd014d84d85ad9e0}\label{main_8c_a8e4e0925e0cf37d4bd014d84d85ad9e0}} 
+\index{main.c@{main.c}!lcd@{lcd}}
+\index{lcd@{lcd}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{lcd}{lcd}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structI2C__LCD__HandleTypeDef}{I2\+C\+\_\+\+LCD\+\_\+\+Handle\+Type\+Def}} lcd}
+
+\mbox{\Hypertarget{main_8c_acb411d8d98891d8a57f6ebeb99025ef4}\label{main_8c_acb411d8d98891d8a57f6ebeb99025ef4}} 
+\index{main.c@{main.c}!mState@{mState}}
+\index{mState@{mState}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{mState}{mState}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structmasterState}{master\+State}} m\+State = \{\mbox{\hyperlink{main_8h_a451f7e2ba4d167b23297704192cac8a1a0afa825567e442a46d131be6c71cb40f}{PASS}}, 0, 1.f, 0, 0, 0, 0\}}
+
+\mbox{\Hypertarget{main_8c_a089976fd4e363bd583ff326c2725d5e6}\label{main_8c_a089976fd4e363bd583ff326c2725d5e6}} 
+\index{main.c@{main.c}!rxBuf@{rxBuf}}
+\index{rxBuf@{rxBuf}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{rxBuf}{rxBuf}}
+{\footnotesize\ttfamily uint16\+\_\+t rx\+Buf\mbox{[}\mbox{\hyperlink{main_8h_a3fb0af62d4d7ddb909bea073d2074eab}{BUF\+\_\+\+SAMPLES}}\mbox{]}}
+
+\mbox{\Hypertarget{main_8c_a10c77bb7b82ff147480b5975e9fde938}\label{main_8c_a10c77bb7b82ff147480b5975e9fde938}} 
+\index{main.c@{main.c}!rxFullComplete@{rxFullComplete}}
+\index{rxFullComplete@{rxFullComplete}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{rxFullComplete}{rxFullComplete}}
+{\footnotesize\ttfamily volatile int rx\+Full\+Complete = 0}
+
+\mbox{\Hypertarget{main_8c_afbdf34c1cb7d057f9afb3d3f936f8d70}\label{main_8c_afbdf34c1cb7d057f9afb3d3f936f8d70}} 
+\index{main.c@{main.c}!rxHalfComplete@{rxHalfComplete}}
+\index{rxHalfComplete@{rxHalfComplete}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{rxHalfComplete}{rxHalfComplete}}
+{\footnotesize\ttfamily volatile int rx\+Half\+Complete = 0}
+
+\mbox{\Hypertarget{main_8c_a58b2dc7112dc6e4ebbaa4715a3905e4f}\label{main_8c_a58b2dc7112dc6e4ebbaa4715a3905e4f}} 
+\index{main.c@{main.c}!srcLeft@{srcLeft}}
+\index{srcLeft@{srcLeft}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{srcLeft}{srcLeft}}
+{\footnotesize\ttfamily float32\+\_\+t src\+Left\mbox{[}\mbox{\hyperlink{main_8h_ad0c329adebc27917fc0a4f51079acf6a}{SAMPLES}}/2\mbox{]}}
+
+\mbox{\Hypertarget{main_8c_accd09377d2db29645101e1e8d66b9724}\label{main_8c_accd09377d2db29645101e1e8d66b9724}} 
+\index{main.c@{main.c}!srcRight@{srcRight}}
+\index{srcRight@{srcRight}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{srcRight}{srcRight}}
+{\footnotesize\ttfamily float32\+\_\+t src\+Right\mbox{[}\mbox{\hyperlink{main_8h_ad0c329adebc27917fc0a4f51079acf6a}{SAMPLES}}/2\mbox{]}}
+
+\mbox{\Hypertarget{main_8c_ab2397931db5121f0514404ab131bf6f4}\label{main_8c_ab2397931db5121f0514404ab131bf6f4}} 
+\index{main.c@{main.c}!stateUpdateCounter@{stateUpdateCounter}}
+\index{stateUpdateCounter@{stateUpdateCounter}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{stateUpdateCounter}{stateUpdateCounter}}
+{\footnotesize\ttfamily volatile int state\+Update\+Counter = 0}
+
+\mbox{\Hypertarget{main_8c_a589955503f0c5878244bbd9b10929ebb}\label{main_8c_a589955503f0c5878244bbd9b10929ebb}} 
+\index{main.c@{main.c}!txBuf@{txBuf}}
+\index{txBuf@{txBuf}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{txBuf}{txBuf}}
+{\footnotesize\ttfamily uint16\+\_\+t tx\+Buf\mbox{[}\mbox{\hyperlink{main_8h_a3fb0af62d4d7ddb909bea073d2074eab}{BUF\+\_\+\+SAMPLES}}\mbox{]}}
+
+\mbox{\Hypertarget{main_8c_a5c929fa6ca57776d2f5b592bef506e41}\label{main_8c_a5c929fa6ca57776d2f5b592bef506e41}} 
+\index{main.c@{main.c}!txFullComplete@{txFullComplete}}
+\index{txFullComplete@{txFullComplete}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{txFullComplete}{txFullComplete}}
+{\footnotesize\ttfamily volatile int tx\+Full\+Complete = 0}
+
+\mbox{\Hypertarget{main_8c_a89ed241ca7f2363bf697ffa0381d3fac}\label{main_8c_a89ed241ca7f2363bf697ffa0381d3fac}} 
+\index{main.c@{main.c}!txHalfComplete@{txHalfComplete}}
+\index{txHalfComplete@{txHalfComplete}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{txHalfComplete}{txHalfComplete}}
+{\footnotesize\ttfamily volatile int tx\+Half\+Complete = 0}
+

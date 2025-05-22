@@ -1,0 +1,78 @@
+\hypertarget{filter__dsp_8c}{}\doxysection{Src/filter\+\_\+dsp.c File Reference}
+\label{filter__dsp_8c}\index{Src/filter\_dsp.c@{Src/filter\_dsp.c}}
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}filter\+\_\+dsp.\+h\char`\"{}}\newline
+Include dependency graph for filter\+\_\+dsp.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=272pt]{filter__dsp_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{filter__dsp_8c_af487e23eab33e4fdb11d5ab7789400e5}{init\+Filter}} (\mbox{\hyperlink{structfilterUnit}{filter\+Unit}} $\ast$filter\+Object, int audio\+Freq)
+\item 
+void \mbox{\hyperlink{filter__dsp_8c_a10334c9a4e72d19968e4342e53a33e3d}{do\+Filter}} (\mbox{\hyperlink{structfilterUnit}{filter\+Unit}} $\ast$filter\+Object\+LR, float32\+\_\+t $\ast$srcL, float32\+\_\+t $\ast$srcR, float32\+\_\+t $\ast$dstL, float32\+\_\+t $\ast$dstR, int num\+\_\+samples)
+\begin{DoxyCompactList}\small\item\em TIM1 Initialization Function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{filter__dsp_8c_a6f46a22dd91ad0ee831caeced4eeef3a}{compute\+\_\+lowpass\+\_\+coeffs}} (\mbox{\hyperlink{structfilterUnit}{filter\+Unit}} $\ast$filter\+Object\+LR, float cutoff, float res)
+\item 
+void \mbox{\hyperlink{filter__dsp_8c_a111cf191dacb55ebc0147de2da75d1a4}{compute\+\_\+highpass\+\_\+coeffs}} (\mbox{\hyperlink{structfilterUnit}{filter\+Unit}} $\ast$filter\+Object\+LR, float cutoff, float res)
+\item 
+void \mbox{\hyperlink{filter__dsp_8c_ab1fd9c40a1e6ce7087dc45e33bbe5550}{compute\+\_\+coeffs}} (\mbox{\hyperlink{structfilterUnit}{filter\+Unit}} $\ast$filter\+Object, float cutoff, float res, enum \mbox{\hyperlink{filter__dsp_8h_a1e3fe7375b3fd849f5125c248b7471f8}{filter\+Type}} type)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{filter__dsp_8c_ab1fd9c40a1e6ce7087dc45e33bbe5550}\label{filter__dsp_8c_ab1fd9c40a1e6ce7087dc45e33bbe5550}} 
+\index{filter\_dsp.c@{filter\_dsp.c}!compute\_coeffs@{compute\_coeffs}}
+\index{compute\_coeffs@{compute\_coeffs}!filter\_dsp.c@{filter\_dsp.c}}
+\doxysubsubsection{\texorpdfstring{compute\_coeffs()}{compute\_coeffs()}}
+{\footnotesize\ttfamily void compute\+\_\+coeffs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structfilterUnit}{filter\+Unit}} $\ast$}]{filter\+Object,  }\item[{float}]{cutoff,  }\item[{float}]{res,  }\item[{enum \mbox{\hyperlink{filter__dsp_8h_a1e3fe7375b3fd849f5125c248b7471f8}{filter\+Type}}}]{type }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{filter__dsp_8c_a111cf191dacb55ebc0147de2da75d1a4}\label{filter__dsp_8c_a111cf191dacb55ebc0147de2da75d1a4}} 
+\index{filter\_dsp.c@{filter\_dsp.c}!compute\_highpass\_coeffs@{compute\_highpass\_coeffs}}
+\index{compute\_highpass\_coeffs@{compute\_highpass\_coeffs}!filter\_dsp.c@{filter\_dsp.c}}
+\doxysubsubsection{\texorpdfstring{compute\_highpass\_coeffs()}{compute\_highpass\_coeffs()}}
+{\footnotesize\ttfamily void compute\+\_\+highpass\+\_\+coeffs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structfilterUnit}{filter\+Unit}} $\ast$}]{filter\+Object\+LR,  }\item[{float}]{cutoff,  }\item[{float}]{res }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{filter__dsp_8c_a6f46a22dd91ad0ee831caeced4eeef3a}\label{filter__dsp_8c_a6f46a22dd91ad0ee831caeced4eeef3a}} 
+\index{filter\_dsp.c@{filter\_dsp.c}!compute\_lowpass\_coeffs@{compute\_lowpass\_coeffs}}
+\index{compute\_lowpass\_coeffs@{compute\_lowpass\_coeffs}!filter\_dsp.c@{filter\_dsp.c}}
+\doxysubsubsection{\texorpdfstring{compute\_lowpass\_coeffs()}{compute\_lowpass\_coeffs()}}
+{\footnotesize\ttfamily void compute\+\_\+lowpass\+\_\+coeffs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structfilterUnit}{filter\+Unit}} $\ast$}]{filter\+Object\+LR,  }\item[{float}]{cutoff,  }\item[{float}]{res }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{filter__dsp_8c_a10334c9a4e72d19968e4342e53a33e3d}\label{filter__dsp_8c_a10334c9a4e72d19968e4342e53a33e3d}} 
+\index{filter\_dsp.c@{filter\_dsp.c}!doFilter@{doFilter}}
+\index{doFilter@{doFilter}!filter\_dsp.c@{filter\_dsp.c}}
+\doxysubsubsection{\texorpdfstring{doFilter()}{doFilter()}}
+{\footnotesize\ttfamily void do\+Filter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structfilterUnit}{filter\+Unit}} $\ast$}]{filter\+Object\+LR,  }\item[{float32\+\_\+t $\ast$}]{srcL,  }\item[{float32\+\_\+t $\ast$}]{srcR,  }\item[{float32\+\_\+t $\ast$}]{dstL,  }\item[{float32\+\_\+t $\ast$}]{dstR,  }\item[{int}]{num\+\_\+samples }\end{DoxyParamCaption})}
+
+
+
+TIM1 Initialization Function. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em $\ast$srcL} & input bufffer of size SAMPLES/2 \\
+\hline
+\mbox{\texttt{ in}}  & {\em $\ast$srcR} & input bufffer of size SAMPLES/2 \\
+\hline
+\mbox{\texttt{ out}}  & {\em $\ast$dstL} & pointer that will be set to the internal output buffer \\
+\hline
+\mbox{\texttt{ out}}  & {\em $\ast$dstR} & pointer that will be set to the internal output buffer \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{filter__dsp_8c_af487e23eab33e4fdb11d5ab7789400e5}\label{filter__dsp_8c_af487e23eab33e4fdb11d5ab7789400e5}} 
+\index{filter\_dsp.c@{filter\_dsp.c}!initFilter@{initFilter}}
+\index{initFilter@{initFilter}!filter\_dsp.c@{filter\_dsp.c}}
+\doxysubsubsection{\texorpdfstring{initFilter()}{initFilter()}}
+{\footnotesize\ttfamily void init\+Filter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structfilterUnit}{filter\+Unit}} $\ast$}]{filter\+Object,  }\item[{int}]{audio\+Freq }\end{DoxyParamCaption})}
+

@@ -1,0 +1,72 @@
+\hypertarget{filter__effect_8h}{}\doxysection{Inc/filter\+\_\+effect.h File Reference}
+\label{filter__effect_8h}\index{Inc/filter\_effect.h@{Inc/filter\_effect.h}}
+{\ttfamily \#include \char`\"{}i2c\+\_\+lcd.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}filter\+\_\+dsp.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+Include dependency graph for filter\+\_\+effect.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{filter__effect_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{filter__effect_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structfilterEffectState}{filter\+Effect\+State}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{filter__effect_8h_a2f529f2db8df01b7bfa097006710333f}{do\+Filter\+Effect}} (int m)
+\item 
+void \mbox{\hyperlink{filter__effect_8h_a400868e5ff93e388235a7b964f876b3e}{Filter\+Effect\+Init}} (\mbox{\hyperlink{structI2C__LCD__HandleTypeDef}{I2\+C\+\_\+\+LCD\+\_\+\+Handle\+Type\+Def}} $\ast$\mbox{\hyperlink{main_8c_a8e4e0925e0cf37d4bd014d84d85ad9e0}{lcd}}, int audio\+Freq)
+\item 
+void \mbox{\hyperlink{filter__effect_8h_a4598080991e6e9eb9d76ce6ea3daefe7}{Filter\+Effect\+Update\+State}} (\mbox{\hyperlink{structmasterState}{master\+State}} $\ast$\mbox{\hyperlink{main_8c_acb411d8d98891d8a57f6ebeb99025ef4}{m\+State}})
+\item 
+void \mbox{\hyperlink{filter__effect_8h_aed1b2e4bc9121c324519454c949b2b67}{Filter\+Effect\+Print\+Init}} ()
+\item 
+void \mbox{\hyperlink{filter__effect_8h_a9e11a6f41dd4b474c2d8a9b68fdedf4c}{Filter\+Effect\+Print\+State}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{filter__effect_8h_a2f529f2db8df01b7bfa097006710333f}\label{filter__effect_8h_a2f529f2db8df01b7bfa097006710333f}} 
+\index{filter\_effect.h@{filter\_effect.h}!doFilterEffect@{doFilterEffect}}
+\index{doFilterEffect@{doFilterEffect}!filter\_effect.h@{filter\_effect.h}}
+\doxysubsubsection{\texorpdfstring{doFilterEffect()}{doFilterEffect()}}
+{\footnotesize\ttfamily void do\+Filter\+Effect (\begin{DoxyParamCaption}\item[{int}]{m }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{filter__effect_8h_a400868e5ff93e388235a7b964f876b3e}\label{filter__effect_8h_a400868e5ff93e388235a7b964f876b3e}} 
+\index{filter\_effect.h@{filter\_effect.h}!FilterEffectInit@{FilterEffectInit}}
+\index{FilterEffectInit@{FilterEffectInit}!filter\_effect.h@{filter\_effect.h}}
+\doxysubsubsection{\texorpdfstring{FilterEffectInit()}{FilterEffectInit()}}
+{\footnotesize\ttfamily void Filter\+Effect\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structI2C__LCD__HandleTypeDef}{I2\+C\+\_\+\+LCD\+\_\+\+Handle\+Type\+Def}} $\ast$}]{lcd,  }\item[{int}]{audio\+Freq }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{filter__effect_8h_aed1b2e4bc9121c324519454c949b2b67}\label{filter__effect_8h_aed1b2e4bc9121c324519454c949b2b67}} 
+\index{filter\_effect.h@{filter\_effect.h}!FilterEffectPrintInit@{FilterEffectPrintInit}}
+\index{FilterEffectPrintInit@{FilterEffectPrintInit}!filter\_effect.h@{filter\_effect.h}}
+\doxysubsubsection{\texorpdfstring{FilterEffectPrintInit()}{FilterEffectPrintInit()}}
+{\footnotesize\ttfamily void Filter\+Effect\+Print\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{filter__effect_8h_a9e11a6f41dd4b474c2d8a9b68fdedf4c}\label{filter__effect_8h_a9e11a6f41dd4b474c2d8a9b68fdedf4c}} 
+\index{filter\_effect.h@{filter\_effect.h}!FilterEffectPrintState@{FilterEffectPrintState}}
+\index{FilterEffectPrintState@{FilterEffectPrintState}!filter\_effect.h@{filter\_effect.h}}
+\doxysubsubsection{\texorpdfstring{FilterEffectPrintState()}{FilterEffectPrintState()}}
+{\footnotesize\ttfamily void Filter\+Effect\+Print\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{filter__effect_8h_a4598080991e6e9eb9d76ce6ea3daefe7}\label{filter__effect_8h_a4598080991e6e9eb9d76ce6ea3daefe7}} 
+\index{filter\_effect.h@{filter\_effect.h}!FilterEffectUpdateState@{FilterEffectUpdateState}}
+\index{FilterEffectUpdateState@{FilterEffectUpdateState}!filter\_effect.h@{filter\_effect.h}}
+\doxysubsubsection{\texorpdfstring{FilterEffectUpdateState()}{FilterEffectUpdateState()}}
+{\footnotesize\ttfamily void Filter\+Effect\+Update\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structmasterState}{master\+State}} $\ast$}]{m\+State }\end{DoxyParamCaption})}
+

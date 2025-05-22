@@ -1,0 +1,5 @@
+../Core/Src/echo.c:43:6:EchoInit	1
+../Core/Src/echo.c:50:6:doEcho	6
+../Core/Src/echo.c:153:6:EchoPrintState	1
+../Core/Src/echo.c:94:6:EchoUpdateState	28
+../Core/Src/echo.c:136:6:EchoPrintInit	1

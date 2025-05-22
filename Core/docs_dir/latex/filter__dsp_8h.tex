@@ -1,0 +1,132 @@
+\hypertarget{filter__dsp_8h}{}\doxysection{Inc/filter\+\_\+dsp.h File Reference}
+\label{filter__dsp_8h}\index{Inc/filter\_dsp.h@{Inc/filter\_dsp.h}}
+{\ttfamily \#include $<$arm\+\_\+math.\+h$>$}\newline
+Include dependency graph for filter\+\_\+dsp.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=168pt]{filter__dsp_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{filter__dsp_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structfilterUnit}{filter\+Unit}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{filter__dsp_8h_ad7a08c1ad332eab094ec8be457bce447}{NUM\+\_\+\+STAGES}}~1
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{filter__dsp_8h_a1e3fe7375b3fd849f5125c248b7471f8}{filter\+Type}} \{ \mbox{\hyperlink{filter__dsp_8h_a1e3fe7375b3fd849f5125c248b7471f8a417c69b8c9313307f484fd52ea61db84}{LP}}
+, \mbox{\hyperlink{filter__dsp_8h_a1e3fe7375b3fd849f5125c248b7471f8a3b47f547ec1200c4854206be912c2c4c}{HP}}
+, \mbox{\hyperlink{filter__dsp_8h_a1e3fe7375b3fd849f5125c248b7471f8af5a5119c2b95cc7f4f3e20f56576ee3e}{BP}}
+, \mbox{\hyperlink{filter__dsp_8h_a1e3fe7375b3fd849f5125c248b7471f8a77523e667a0ecc390c513ff866fbbab3}{NUM\+\_\+\+FILTER\+\_\+\+TYPES}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{filter__dsp_8h_a1df318f60637931f0cef5cdeb97efdb6}{init\+Filter}} (\mbox{\hyperlink{structfilterUnit}{filter\+Unit}} $\ast$filter\+Object\+LR, int audio\+Freq)
+\item 
+void \mbox{\hyperlink{filter__dsp_8h_a41b0b3c7ce9c5140656f4043b8ed6a8b}{do\+Filter}} (\mbox{\hyperlink{structfilterUnit}{filter\+Unit}} $\ast$, float32\+\_\+t $\ast$srcL, float32\+\_\+t $\ast$srcR, float32\+\_\+t $\ast$dstL, float32\+\_\+t $\ast$dstR, int num\+\_\+samples)
+\begin{DoxyCompactList}\small\item\em TIM1 Initialization Function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{filter__dsp_8h_acdedd1dc0a03435a0712eb215496445f}{compute\+\_\+lowpass\+\_\+coeffs}} (\mbox{\hyperlink{structfilterUnit}{filter\+Unit}} $\ast$, float cutoff, float res)
+\item 
+void \mbox{\hyperlink{filter__dsp_8h_a750c3039857605b33b9c6e39dd3ccbaf}{compute\+\_\+coeffs}} (\mbox{\hyperlink{structfilterUnit}{filter\+Unit}} $\ast$, float cutoff, float res, enum \mbox{\hyperlink{filter__dsp_8h_a1e3fe7375b3fd849f5125c248b7471f8}{filter\+Type}} type)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{filter__dsp_8h_ad7a08c1ad332eab094ec8be457bce447}\label{filter__dsp_8h_ad7a08c1ad332eab094ec8be457bce447}} 
+\index{filter\_dsp.h@{filter\_dsp.h}!NUM\_STAGES@{NUM\_STAGES}}
+\index{NUM\_STAGES@{NUM\_STAGES}!filter\_dsp.h@{filter\_dsp.h}}
+\doxysubsubsection{\texorpdfstring{NUM\_STAGES}{NUM\_STAGES}}
+{\footnotesize\ttfamily \#define NUM\+\_\+\+STAGES~1}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{filter__dsp_8h_a1e3fe7375b3fd849f5125c248b7471f8}\label{filter__dsp_8h_a1e3fe7375b3fd849f5125c248b7471f8}} 
+\index{filter\_dsp.h@{filter\_dsp.h}!filterType@{filterType}}
+\index{filterType@{filterType}!filter\_dsp.h@{filter\_dsp.h}}
+\doxysubsubsection{\texorpdfstring{filterType}{filterType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{filter__dsp_8h_a1e3fe7375b3fd849f5125c248b7471f8}{filter\+Type}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LP@{LP}!filter\_dsp.h@{filter\_dsp.h}}\index{filter\_dsp.h@{filter\_dsp.h}!LP@{LP}}}\mbox{\Hypertarget{filter__dsp_8h_a1e3fe7375b3fd849f5125c248b7471f8a417c69b8c9313307f484fd52ea61db84}\label{filter__dsp_8h_a1e3fe7375b3fd849f5125c248b7471f8a417c69b8c9313307f484fd52ea61db84}} 
+LP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HP@{HP}!filter\_dsp.h@{filter\_dsp.h}}\index{filter\_dsp.h@{filter\_dsp.h}!HP@{HP}}}\mbox{\Hypertarget{filter__dsp_8h_a1e3fe7375b3fd849f5125c248b7471f8a3b47f547ec1200c4854206be912c2c4c}\label{filter__dsp_8h_a1e3fe7375b3fd849f5125c248b7471f8a3b47f547ec1200c4854206be912c2c4c}} 
+HP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BP@{BP}!filter\_dsp.h@{filter\_dsp.h}}\index{filter\_dsp.h@{filter\_dsp.h}!BP@{BP}}}\mbox{\Hypertarget{filter__dsp_8h_a1e3fe7375b3fd849f5125c248b7471f8af5a5119c2b95cc7f4f3e20f56576ee3e}\label{filter__dsp_8h_a1e3fe7375b3fd849f5125c248b7471f8af5a5119c2b95cc7f4f3e20f56576ee3e}} 
+BP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUM\_FILTER\_TYPES@{NUM\_FILTER\_TYPES}!filter\_dsp.h@{filter\_dsp.h}}\index{filter\_dsp.h@{filter\_dsp.h}!NUM\_FILTER\_TYPES@{NUM\_FILTER\_TYPES}}}\mbox{\Hypertarget{filter__dsp_8h_a1e3fe7375b3fd849f5125c248b7471f8a77523e667a0ecc390c513ff866fbbab3}\label{filter__dsp_8h_a1e3fe7375b3fd849f5125c248b7471f8a77523e667a0ecc390c513ff866fbbab3}} 
+NUM\+\_\+\+FILTER\+\_\+\+TYPES&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{filter__dsp_8h_a750c3039857605b33b9c6e39dd3ccbaf}\label{filter__dsp_8h_a750c3039857605b33b9c6e39dd3ccbaf}} 
+\index{filter\_dsp.h@{filter\_dsp.h}!compute\_coeffs@{compute\_coeffs}}
+\index{compute\_coeffs@{compute\_coeffs}!filter\_dsp.h@{filter\_dsp.h}}
+\doxysubsubsection{\texorpdfstring{compute\_coeffs()}{compute\_coeffs()}}
+{\footnotesize\ttfamily void compute\+\_\+coeffs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structfilterUnit}{filter\+Unit}} $\ast$}]{filter\+Object,  }\item[{float}]{cutoff,  }\item[{float}]{res,  }\item[{enum \mbox{\hyperlink{filter__dsp_8h_a1e3fe7375b3fd849f5125c248b7471f8}{filter\+Type}}}]{type }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{filter__dsp_8h_acdedd1dc0a03435a0712eb215496445f}\label{filter__dsp_8h_acdedd1dc0a03435a0712eb215496445f}} 
+\index{filter\_dsp.h@{filter\_dsp.h}!compute\_lowpass\_coeffs@{compute\_lowpass\_coeffs}}
+\index{compute\_lowpass\_coeffs@{compute\_lowpass\_coeffs}!filter\_dsp.h@{filter\_dsp.h}}
+\doxysubsubsection{\texorpdfstring{compute\_lowpass\_coeffs()}{compute\_lowpass\_coeffs()}}
+{\footnotesize\ttfamily void compute\+\_\+lowpass\+\_\+coeffs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structfilterUnit}{filter\+Unit}} $\ast$}]{filter\+Object\+LR,  }\item[{float}]{cutoff,  }\item[{float}]{res }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{filter__dsp_8h_a41b0b3c7ce9c5140656f4043b8ed6a8b}\label{filter__dsp_8h_a41b0b3c7ce9c5140656f4043b8ed6a8b}} 
+\index{filter\_dsp.h@{filter\_dsp.h}!doFilter@{doFilter}}
+\index{doFilter@{doFilter}!filter\_dsp.h@{filter\_dsp.h}}
+\doxysubsubsection{\texorpdfstring{doFilter()}{doFilter()}}
+{\footnotesize\ttfamily void do\+Filter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structfilterUnit}{filter\+Unit}} $\ast$}]{filter\+Object\+LR,  }\item[{float32\+\_\+t $\ast$}]{srcL,  }\item[{float32\+\_\+t $\ast$}]{srcR,  }\item[{float32\+\_\+t $\ast$}]{dstL,  }\item[{float32\+\_\+t $\ast$}]{dstR,  }\item[{int}]{num\+\_\+samples }\end{DoxyParamCaption})}
+
+
+
+TIM1 Initialization Function. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em $\ast$srcL} & input bufffer of size SAMPLES/2 \\
+\hline
+\mbox{\texttt{ in}}  & {\em $\ast$srcR} & input bufffer of size SAMPLES/2 \\
+\hline
+\mbox{\texttt{ out}}  & {\em $\ast$dstL} & pointer that will be set to the internal output buffer \\
+\hline
+\mbox{\texttt{ out}}  & {\em $\ast$dstR} & pointer that will be set to the internal output buffer \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{filter__dsp_8h_a1df318f60637931f0cef5cdeb97efdb6}\label{filter__dsp_8h_a1df318f60637931f0cef5cdeb97efdb6}} 
+\index{filter\_dsp.h@{filter\_dsp.h}!initFilter@{initFilter}}
+\index{initFilter@{initFilter}!filter\_dsp.h@{filter\_dsp.h}}
+\doxysubsubsection{\texorpdfstring{initFilter()}{initFilter()}}
+{\footnotesize\ttfamily void init\+Filter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structfilterUnit}{filter\+Unit}} $\ast$}]{filter\+Object\+LR,  }\item[{int}]{audio\+Freq }\end{DoxyParamCaption})}
+

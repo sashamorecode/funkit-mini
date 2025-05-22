@@ -1,5 +1,5 @@
-../Core/Src/echo.c:47:6:EchoInit	16	static
-../Core/Src/echo.c:53:6:doEcho	48	static
-../Core/Src/echo.c:87:6:EchoUpdateState	40	static
-../Core/Src/echo.c:148:6:EchoPrintInit	8	static
-../Core/Src/echo.c:162:6:EchoPrintState	8	static
+../Core/Src/echo.c:43:6:EchoInit	16	static
+../Core/Src/echo.c:50:6:doEcho	64	static
+../Core/Src/echo.c:94:6:EchoUpdateState	32	static
+../Core/Src/echo.c:136:6:EchoPrintInit	8	static
+../Core/Src/echo.c:153:6:EchoPrintState	8	static

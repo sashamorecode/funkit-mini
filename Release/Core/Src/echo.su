@@ -1,0 +1,5 @@
+../Core/Src/echo.c:43:6:EchoInit	16	static
+../Core/Src/echo.c:50:6:doEcho	88	static
+../Core/Src/echo.c:153:6:EchoPrintState	24	static
+../Core/Src/echo.c:94:6:EchoUpdateState	16	static
+../Core/Src/echo.c:136:6:EchoPrintInit	8	static

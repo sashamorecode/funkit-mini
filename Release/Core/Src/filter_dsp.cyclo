@@ -1,0 +1,5 @@
+../Core/Src/filter_dsp.c:19:6:initFilter	1
+../Core/Src/filter_dsp.c:35:6:doFilter	1
+../Core/Src/filter_dsp.c:40:6:compute_lowpass_coeffs	1
+../Core/Src/filter_dsp.c:58:6:compute_highpass_coeffs	1
+../Core/Src/filter_dsp.c:77:6:compute_coeffs	2

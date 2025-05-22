@@ -1,0 +1,84 @@
+\hypertarget{delay_8h}{}\doxysection{Inc/delay.h File Reference}
+\label{delay_8h}\index{Inc/delay.h@{Inc/delay.h}}
+{\ttfamily \#include \char`\"{}i2c\+\_\+lcd.\+h\char`\"{}}\newline
+Include dependency graph for delay.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{delay_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{delay_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structdelayState}{delay\+State}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structdelayState}{delay\+State}} \mbox{\hyperlink{delay_8h_a5a0ed41c864000dd34a31e0d52256f75}{delay\+State}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{delay_8h_a07dfbd44c0c5f0d646b1e2ff0a4f991e}{do\+Delay}} (int m)
+\item 
+void \mbox{\hyperlink{delay_8h_a27fecaab0da158f9a3605452d5c93f41}{Delay\+Init}} (\mbox{\hyperlink{structI2C__LCD__HandleTypeDef}{I2\+C\+\_\+\+LCD\+\_\+\+Handle\+Type\+Def}} $\ast$\mbox{\hyperlink{main_8c_a8e4e0925e0cf37d4bd014d84d85ad9e0}{lcd}})
+\item 
+void \mbox{\hyperlink{delay_8h_a21ca9497c6e3527188058435c8a70f66}{Delay\+Update\+State}} ()
+\item 
+void \mbox{\hyperlink{delay_8h_a5823aaca2baa19e7fd16e4053efa4d1a}{Delay\+Print\+Init}} ()
+\item 
+void \mbox{\hyperlink{delay_8h_a8788058a4a4063625dee1dc78ba78d46}{Delay\+Print\+State}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{delay_8h_a5a0ed41c864000dd34a31e0d52256f75}\label{delay_8h_a5a0ed41c864000dd34a31e0d52256f75}} 
+\index{delay.h@{delay.h}!delayState@{delayState}}
+\index{delayState@{delayState}!delay.h@{delay.h}}
+\doxysubsubsection{\texorpdfstring{delayState}{delayState}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structdelayState}{delay\+State}} \mbox{\hyperlink{structdelayState}{delay\+State}}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{delay_8h_a27fecaab0da158f9a3605452d5c93f41}\label{delay_8h_a27fecaab0da158f9a3605452d5c93f41}} 
+\index{delay.h@{delay.h}!DelayInit@{DelayInit}}
+\index{DelayInit@{DelayInit}!delay.h@{delay.h}}
+\doxysubsubsection{\texorpdfstring{DelayInit()}{DelayInit()}}
+{\footnotesize\ttfamily void Delay\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structI2C__LCD__HandleTypeDef}{I2\+C\+\_\+\+LCD\+\_\+\+Handle\+Type\+Def}} $\ast$}]{lcd }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{delay_8h_a5823aaca2baa19e7fd16e4053efa4d1a}\label{delay_8h_a5823aaca2baa19e7fd16e4053efa4d1a}} 
+\index{delay.h@{delay.h}!DelayPrintInit@{DelayPrintInit}}
+\index{DelayPrintInit@{DelayPrintInit}!delay.h@{delay.h}}
+\doxysubsubsection{\texorpdfstring{DelayPrintInit()}{DelayPrintInit()}}
+{\footnotesize\ttfamily void Delay\+Print\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{delay_8h_a8788058a4a4063625dee1dc78ba78d46}\label{delay_8h_a8788058a4a4063625dee1dc78ba78d46}} 
+\index{delay.h@{delay.h}!DelayPrintState@{DelayPrintState}}
+\index{DelayPrintState@{DelayPrintState}!delay.h@{delay.h}}
+\doxysubsubsection{\texorpdfstring{DelayPrintState()}{DelayPrintState()}}
+{\footnotesize\ttfamily void Delay\+Print\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{delay_8h_a21ca9497c6e3527188058435c8a70f66}\label{delay_8h_a21ca9497c6e3527188058435c8a70f66}} 
+\index{delay.h@{delay.h}!DelayUpdateState@{DelayUpdateState}}
+\index{DelayUpdateState@{DelayUpdateState}!delay.h@{delay.h}}
+\doxysubsubsection{\texorpdfstring{DelayUpdateState()}{DelayUpdateState()}}
+{\footnotesize\ttfamily void Delay\+Update\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{delay_8h_a07dfbd44c0c5f0d646b1e2ff0a4f991e}\label{delay_8h_a07dfbd44c0c5f0d646b1e2ff0a4f991e}} 
+\index{delay.h@{delay.h}!doDelay@{doDelay}}
+\index{doDelay@{doDelay}!delay.h@{delay.h}}
+\doxysubsubsection{\texorpdfstring{doDelay()}{doDelay()}}
+{\footnotesize\ttfamily void do\+Delay (\begin{DoxyParamCaption}\item[{int}]{m }\end{DoxyParamCaption})}
+

@@ -36,15 +36,31 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
+enum effect{
+	PASS,
+	ECHO,
+	DELAY,
+	FILTER,
+	NUM_EFFECTS,
+};
 
+typedef struct{
+	enum effect currentEffect;
+	int effectTracker; //used to make it take 2 encoder vals for change effect.
 
+	float volume;
+
+	int lastEncoderVal1;
+	int encoder1Delta;
+	int lastEncoderVal2;
+	int encoder2Delta;
+}masterState;
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
 /* USER CODE BEGIN EC */
 #define SAMPLES           512
 #define BUF_SAMPLES       SAMPLES * 4
-#define MAX_ENCODER_VALUE 999
 #define	DELAY_BUF	      30000
 /* USER CODE END EC */
 
@@ -69,7 +85,7 @@ void Error_Handler(void);
 #define EncoderSW2_GPIO_Port GPIOD
 
 /* USER CODE BEGIN Private defines */
-#define STATE_UPDATE_DIV 100
+#define STATE_UPDATE_DIV 1000
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

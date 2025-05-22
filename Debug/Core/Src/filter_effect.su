@@ -1,0 +1,5 @@
+../Core/Src/filter_effect.c:28:6:FilterEffectInit	16	static
+../Core/Src/filter_effect.c:34:6:doFilterEffect	56	static
+../Core/Src/filter_effect.c:58:6:FilterEffectUpdateState	32	static
+../Core/Src/filter_effect.c:121:6:FilterEffectPrintInit	8	static
+../Core/Src/filter_effect.c:138:6:FilterEffectPrintState	8	static

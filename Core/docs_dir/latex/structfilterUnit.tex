@@ -1,0 +1,65 @@
+\hypertarget{structfilterUnit}{}\doxysection{filter\+Unit Struct Reference}
+\label{structfilterUnit}\index{filterUnit@{filterUnit}}
+
+
+{\ttfamily \#include $<$filter\+\_\+dsp.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+arm\+\_\+biquad\+\_\+cascade\+\_\+df2\+T\+\_\+instance\+\_\+f32 \mbox{\hyperlink{structfilterUnit_a6a931864041603c1731997e0f876f25f}{arm\+\_\+inst\+\_\+left}}
+\item 
+arm\+\_\+biquad\+\_\+cascade\+\_\+df2\+T\+\_\+instance\+\_\+f32 \mbox{\hyperlink{structfilterUnit_a62b2f7852245ce6590a0c5ca5ac23f51}{arm\+\_\+inst\+\_\+right}}
+\item 
+float32\+\_\+t \mbox{\hyperlink{structfilterUnit_a3d2122d729ccec2078f237211c9c29f9}{p\+Coeffs}} \mbox{[}\mbox{\hyperlink{filter__dsp_8h_ad7a08c1ad332eab094ec8be457bce447}{NUM\+\_\+\+STAGES}} $\ast$5\mbox{]}
+\item 
+float32\+\_\+t \mbox{\hyperlink{structfilterUnit_a951fc5db685ebdc32d382a5dce64b0e1}{p\+StateL}} \mbox{[}\mbox{\hyperlink{filter__dsp_8h_ad7a08c1ad332eab094ec8be457bce447}{NUM\+\_\+\+STAGES}} $\ast$2\mbox{]}
+\item 
+float32\+\_\+t \mbox{\hyperlink{structfilterUnit_a7d42be5c41b059a26f6aa2c7dd974512}{p\+StateR}} \mbox{[}\mbox{\hyperlink{filter__dsp_8h_ad7a08c1ad332eab094ec8be457bce447}{NUM\+\_\+\+STAGES}} $\ast$2\mbox{]}
+\item 
+float32\+\_\+t \mbox{\hyperlink{structfilterUnit_aee55c5bdfaef7e65914a9d96ca391f07}{audio\+Freq}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structfilterUnit_a6a931864041603c1731997e0f876f25f}\label{structfilterUnit_a6a931864041603c1731997e0f876f25f}} 
+\index{filterUnit@{filterUnit}!arm\_inst\_left@{arm\_inst\_left}}
+\index{arm\_inst\_left@{arm\_inst\_left}!filterUnit@{filterUnit}}
+\doxysubsubsection{\texorpdfstring{arm\_inst\_left}{arm\_inst\_left}}
+{\footnotesize\ttfamily arm\+\_\+biquad\+\_\+cascade\+\_\+df2\+T\+\_\+instance\+\_\+f32 filter\+Unit\+::arm\+\_\+inst\+\_\+left}
+
+\mbox{\Hypertarget{structfilterUnit_a62b2f7852245ce6590a0c5ca5ac23f51}\label{structfilterUnit_a62b2f7852245ce6590a0c5ca5ac23f51}} 
+\index{filterUnit@{filterUnit}!arm\_inst\_right@{arm\_inst\_right}}
+\index{arm\_inst\_right@{arm\_inst\_right}!filterUnit@{filterUnit}}
+\doxysubsubsection{\texorpdfstring{arm\_inst\_right}{arm\_inst\_right}}
+{\footnotesize\ttfamily arm\+\_\+biquad\+\_\+cascade\+\_\+df2\+T\+\_\+instance\+\_\+f32 filter\+Unit\+::arm\+\_\+inst\+\_\+right}
+
+\mbox{\Hypertarget{structfilterUnit_aee55c5bdfaef7e65914a9d96ca391f07}\label{structfilterUnit_aee55c5bdfaef7e65914a9d96ca391f07}} 
+\index{filterUnit@{filterUnit}!audioFreq@{audioFreq}}
+\index{audioFreq@{audioFreq}!filterUnit@{filterUnit}}
+\doxysubsubsection{\texorpdfstring{audioFreq}{audioFreq}}
+{\footnotesize\ttfamily float32\+\_\+t filter\+Unit\+::audio\+Freq}
+
+\mbox{\Hypertarget{structfilterUnit_a3d2122d729ccec2078f237211c9c29f9}\label{structfilterUnit_a3d2122d729ccec2078f237211c9c29f9}} 
+\index{filterUnit@{filterUnit}!pCoeffs@{pCoeffs}}
+\index{pCoeffs@{pCoeffs}!filterUnit@{filterUnit}}
+\doxysubsubsection{\texorpdfstring{pCoeffs}{pCoeffs}}
+{\footnotesize\ttfamily float32\+\_\+t filter\+Unit\+::p\+Coeffs\mbox{[}\mbox{\hyperlink{filter__dsp_8h_ad7a08c1ad332eab094ec8be457bce447}{NUM\+\_\+\+STAGES}} $\ast$5\mbox{]}}
+
+\mbox{\Hypertarget{structfilterUnit_a951fc5db685ebdc32d382a5dce64b0e1}\label{structfilterUnit_a951fc5db685ebdc32d382a5dce64b0e1}} 
+\index{filterUnit@{filterUnit}!pStateL@{pStateL}}
+\index{pStateL@{pStateL}!filterUnit@{filterUnit}}
+\doxysubsubsection{\texorpdfstring{pStateL}{pStateL}}
+{\footnotesize\ttfamily float32\+\_\+t filter\+Unit\+::p\+StateL\mbox{[}\mbox{\hyperlink{filter__dsp_8h_ad7a08c1ad332eab094ec8be457bce447}{NUM\+\_\+\+STAGES}} $\ast$2\mbox{]}}
+
+\mbox{\Hypertarget{structfilterUnit_a7d42be5c41b059a26f6aa2c7dd974512}\label{structfilterUnit_a7d42be5c41b059a26f6aa2c7dd974512}} 
+\index{filterUnit@{filterUnit}!pStateR@{pStateR}}
+\index{pStateR@{pStateR}!filterUnit@{filterUnit}}
+\doxysubsubsection{\texorpdfstring{pStateR}{pStateR}}
+{\footnotesize\ttfamily float32\+\_\+t filter\+Unit\+::p\+StateR\mbox{[}\mbox{\hyperlink{filter__dsp_8h_ad7a08c1ad332eab094ec8be457bce447}{NUM\+\_\+\+STAGES}} $\ast$2\mbox{]}}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Inc/\mbox{\hyperlink{filter__dsp_8h}{filter\+\_\+dsp.\+h}}\end{DoxyCompactItemize}

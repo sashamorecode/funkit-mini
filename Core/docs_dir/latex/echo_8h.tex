@@ -1,0 +1,72 @@
+\hypertarget{echo_8h}{}\doxysection{Inc/echo.h File Reference}
+\label{echo_8h}\index{Inc/echo.h@{Inc/echo.h}}
+{\ttfamily \#include \char`\"{}i2c\+\_\+lcd.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}filter\+\_\+dsp.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+Include dependency graph for echo.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{echo_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{echo_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structechoState}{echo\+State}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{echo_8h_af239085171fdec329fc61d7b78f31956}{do\+Echo}} (int m)
+\item 
+void \mbox{\hyperlink{echo_8h_a7d527f4325c48c0d2c91b3dcf0fbfaa5}{Echo\+Init}} (\mbox{\hyperlink{structI2C__LCD__HandleTypeDef}{I2\+C\+\_\+\+LCD\+\_\+\+Handle\+Type\+Def}} $\ast$\mbox{\hyperlink{main_8c_a8e4e0925e0cf37d4bd014d84d85ad9e0}{lcd}}, int audio\+Freq)
+\item 
+void \mbox{\hyperlink{echo_8h_a282637921597d7f66e74ac9a1f90f891}{Echo\+Update\+State}} (\mbox{\hyperlink{structmasterState}{master\+State}} $\ast$\mbox{\hyperlink{main_8c_acb411d8d98891d8a57f6ebeb99025ef4}{m\+State}})
+\item 
+void \mbox{\hyperlink{echo_8h_a58152161e53e558f68c38e2a088efa16}{Echo\+Print\+Init}} ()
+\item 
+void \mbox{\hyperlink{echo_8h_a1a0564909dece6268eef61d2eaad7ffa}{Echo\+Print\+State}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{echo_8h_af239085171fdec329fc61d7b78f31956}\label{echo_8h_af239085171fdec329fc61d7b78f31956}} 
+\index{echo.h@{echo.h}!doEcho@{doEcho}}
+\index{doEcho@{doEcho}!echo.h@{echo.h}}
+\doxysubsubsection{\texorpdfstring{doEcho()}{doEcho()}}
+{\footnotesize\ttfamily void do\+Echo (\begin{DoxyParamCaption}\item[{int}]{m }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{echo_8h_a7d527f4325c48c0d2c91b3dcf0fbfaa5}\label{echo_8h_a7d527f4325c48c0d2c91b3dcf0fbfaa5}} 
+\index{echo.h@{echo.h}!EchoInit@{EchoInit}}
+\index{EchoInit@{EchoInit}!echo.h@{echo.h}}
+\doxysubsubsection{\texorpdfstring{EchoInit()}{EchoInit()}}
+{\footnotesize\ttfamily void Echo\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structI2C__LCD__HandleTypeDef}{I2\+C\+\_\+\+LCD\+\_\+\+Handle\+Type\+Def}} $\ast$}]{lcd,  }\item[{int}]{audio\+Freq }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{echo_8h_a58152161e53e558f68c38e2a088efa16}\label{echo_8h_a58152161e53e558f68c38e2a088efa16}} 
+\index{echo.h@{echo.h}!EchoPrintInit@{EchoPrintInit}}
+\index{EchoPrintInit@{EchoPrintInit}!echo.h@{echo.h}}
+\doxysubsubsection{\texorpdfstring{EchoPrintInit()}{EchoPrintInit()}}
+{\footnotesize\ttfamily void Echo\+Print\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{echo_8h_a1a0564909dece6268eef61d2eaad7ffa}\label{echo_8h_a1a0564909dece6268eef61d2eaad7ffa}} 
+\index{echo.h@{echo.h}!EchoPrintState@{EchoPrintState}}
+\index{EchoPrintState@{EchoPrintState}!echo.h@{echo.h}}
+\doxysubsubsection{\texorpdfstring{EchoPrintState()}{EchoPrintState()}}
+{\footnotesize\ttfamily void Echo\+Print\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{echo_8h_a282637921597d7f66e74ac9a1f90f891}\label{echo_8h_a282637921597d7f66e74ac9a1f90f891}} 
+\index{echo.h@{echo.h}!EchoUpdateState@{EchoUpdateState}}
+\index{EchoUpdateState@{EchoUpdateState}!echo.h@{echo.h}}
+\doxysubsubsection{\texorpdfstring{EchoUpdateState()}{EchoUpdateState()}}
+{\footnotesize\ttfamily void Echo\+Update\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structmasterState}{master\+State}} $\ast$}]{m\+State }\end{DoxyParamCaption})}
+

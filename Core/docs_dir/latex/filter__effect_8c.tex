@@ -1,0 +1,116 @@
+\hypertarget{filter__effect_8c}{}\doxysection{Src/filter\+\_\+effect.c File Reference}
+\label{filter__effect_8c}\index{Src/filter\_effect.c@{Src/filter\_effect.c}}
+{\ttfamily \#include \char`\"{}filter\+\_\+effect.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$arm\+\_\+math.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+Include dependency graph for filter\+\_\+effect.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{filter__effect_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{filter__effect_8c_a400868e5ff93e388235a7b964f876b3e}{Filter\+Effect\+Init}} (\mbox{\hyperlink{structI2C__LCD__HandleTypeDef}{I2\+C\+\_\+\+LCD\+\_\+\+Handle\+Type\+Def}} $\ast$\mbox{\hyperlink{main_8c_a8e4e0925e0cf37d4bd014d84d85ad9e0}{lcd}}, int audio\+Freq)
+\item 
+void \mbox{\hyperlink{filter__effect_8c_a17eeb35dc8070ac86cff551c9b942ad9}{do\+Filter\+Effect}} (int b)
+\item 
+void \mbox{\hyperlink{filter__effect_8c_a4598080991e6e9eb9d76ce6ea3daefe7}{Filter\+Effect\+Update\+State}} (\mbox{\hyperlink{structmasterState}{master\+State}} $\ast$\mbox{\hyperlink{main_8c_acb411d8d98891d8a57f6ebeb99025ef4}{m\+State}})
+\item 
+void \mbox{\hyperlink{filter__effect_8c_aed1b2e4bc9121c324519454c949b2b67}{Filter\+Effect\+Print\+Init}} ()
+\item 
+void \mbox{\hyperlink{filter__effect_8c_a9e11a6f41dd4b474c2d8a9b68fdedf4c}{Filter\+Effect\+Print\+State}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{filter__effect_8c_a089976fd4e363bd583ff326c2725d5e6}{rx\+Buf}} \mbox{[}\mbox{\hyperlink{main_8h_a3fb0af62d4d7ddb909bea073d2074eab}{BUF\+\_\+\+SAMPLES}}\mbox{]}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{filter__effect_8c_a589955503f0c5878244bbd9b10929ebb}{tx\+Buf}} \mbox{[}\mbox{\hyperlink{main_8h_a3fb0af62d4d7ddb909bea073d2074eab}{BUF\+\_\+\+SAMPLES}}\mbox{]}
+\item 
+float32\+\_\+t \mbox{\hyperlink{filter__effect_8c_a58b2dc7112dc6e4ebbaa4715a3905e4f}{src\+Left}} \mbox{[}\mbox{\hyperlink{main_8h_ad0c329adebc27917fc0a4f51079acf6a}{SAMPLES}}/2\mbox{]}
+\item 
+float32\+\_\+t \mbox{\hyperlink{filter__effect_8c_accd09377d2db29645101e1e8d66b9724}{src\+Right}} \mbox{[}\mbox{\hyperlink{main_8h_ad0c329adebc27917fc0a4f51079acf6a}{SAMPLES}}/2\mbox{]}
+\item 
+float32\+\_\+t \mbox{\hyperlink{filter__effect_8c_aee0b84c051e5b9273e5a990de29b1f61}{dest\+Left}} \mbox{[}\mbox{\hyperlink{main_8h_ad0c329adebc27917fc0a4f51079acf6a}{SAMPLES}}/2\mbox{]}
+\item 
+float32\+\_\+t \mbox{\hyperlink{filter__effect_8c_ad0700faacec49ba7288ed6683623f77d}{dest\+Right}} \mbox{[}\mbox{\hyperlink{main_8h_ad0c329adebc27917fc0a4f51079acf6a}{SAMPLES}}/2\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{filter__effect_8c_a17eeb35dc8070ac86cff551c9b942ad9}\label{filter__effect_8c_a17eeb35dc8070ac86cff551c9b942ad9}} 
+\index{filter\_effect.c@{filter\_effect.c}!doFilterEffect@{doFilterEffect}}
+\index{doFilterEffect@{doFilterEffect}!filter\_effect.c@{filter\_effect.c}}
+\doxysubsubsection{\texorpdfstring{doFilterEffect()}{doFilterEffect()}}
+{\footnotesize\ttfamily void do\+Filter\+Effect (\begin{DoxyParamCaption}\item[{int}]{b }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{filter__effect_8c_a400868e5ff93e388235a7b964f876b3e}\label{filter__effect_8c_a400868e5ff93e388235a7b964f876b3e}} 
+\index{filter\_effect.c@{filter\_effect.c}!FilterEffectInit@{FilterEffectInit}}
+\index{FilterEffectInit@{FilterEffectInit}!filter\_effect.c@{filter\_effect.c}}
+\doxysubsubsection{\texorpdfstring{FilterEffectInit()}{FilterEffectInit()}}
+{\footnotesize\ttfamily void Filter\+Effect\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structI2C__LCD__HandleTypeDef}{I2\+C\+\_\+\+LCD\+\_\+\+Handle\+Type\+Def}} $\ast$}]{lcd,  }\item[{int}]{audio\+Freq }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{filter__effect_8c_aed1b2e4bc9121c324519454c949b2b67}\label{filter__effect_8c_aed1b2e4bc9121c324519454c949b2b67}} 
+\index{filter\_effect.c@{filter\_effect.c}!FilterEffectPrintInit@{FilterEffectPrintInit}}
+\index{FilterEffectPrintInit@{FilterEffectPrintInit}!filter\_effect.c@{filter\_effect.c}}
+\doxysubsubsection{\texorpdfstring{FilterEffectPrintInit()}{FilterEffectPrintInit()}}
+{\footnotesize\ttfamily void Filter\+Effect\+Print\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{filter__effect_8c_a9e11a6f41dd4b474c2d8a9b68fdedf4c}\label{filter__effect_8c_a9e11a6f41dd4b474c2d8a9b68fdedf4c}} 
+\index{filter\_effect.c@{filter\_effect.c}!FilterEffectPrintState@{FilterEffectPrintState}}
+\index{FilterEffectPrintState@{FilterEffectPrintState}!filter\_effect.c@{filter\_effect.c}}
+\doxysubsubsection{\texorpdfstring{FilterEffectPrintState()}{FilterEffectPrintState()}}
+{\footnotesize\ttfamily void Filter\+Effect\+Print\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{filter__effect_8c_a4598080991e6e9eb9d76ce6ea3daefe7}\label{filter__effect_8c_a4598080991e6e9eb9d76ce6ea3daefe7}} 
+\index{filter\_effect.c@{filter\_effect.c}!FilterEffectUpdateState@{FilterEffectUpdateState}}
+\index{FilterEffectUpdateState@{FilterEffectUpdateState}!filter\_effect.c@{filter\_effect.c}}
+\doxysubsubsection{\texorpdfstring{FilterEffectUpdateState()}{FilterEffectUpdateState()}}
+{\footnotesize\ttfamily void Filter\+Effect\+Update\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structmasterState}{master\+State}} $\ast$}]{m\+State }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{filter__effect_8c_aee0b84c051e5b9273e5a990de29b1f61}\label{filter__effect_8c_aee0b84c051e5b9273e5a990de29b1f61}} 
+\index{filter\_effect.c@{filter\_effect.c}!destLeft@{destLeft}}
+\index{destLeft@{destLeft}!filter\_effect.c@{filter\_effect.c}}
+\doxysubsubsection{\texorpdfstring{destLeft}{destLeft}}
+{\footnotesize\ttfamily float32\+\_\+t dest\+Left\mbox{[}\mbox{\hyperlink{main_8h_ad0c329adebc27917fc0a4f51079acf6a}{SAMPLES}}/2\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{filter__effect_8c_ad0700faacec49ba7288ed6683623f77d}\label{filter__effect_8c_ad0700faacec49ba7288ed6683623f77d}} 
+\index{filter\_effect.c@{filter\_effect.c}!destRight@{destRight}}
+\index{destRight@{destRight}!filter\_effect.c@{filter\_effect.c}}
+\doxysubsubsection{\texorpdfstring{destRight}{destRight}}
+{\footnotesize\ttfamily float32\+\_\+t dest\+Right\mbox{[}\mbox{\hyperlink{main_8h_ad0c329adebc27917fc0a4f51079acf6a}{SAMPLES}}/2\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{filter__effect_8c_a089976fd4e363bd583ff326c2725d5e6}\label{filter__effect_8c_a089976fd4e363bd583ff326c2725d5e6}} 
+\index{filter\_effect.c@{filter\_effect.c}!rxBuf@{rxBuf}}
+\index{rxBuf@{rxBuf}!filter\_effect.c@{filter\_effect.c}}
+\doxysubsubsection{\texorpdfstring{rxBuf}{rxBuf}}
+{\footnotesize\ttfamily uint16\+\_\+t rx\+Buf\mbox{[}\mbox{\hyperlink{main_8h_a3fb0af62d4d7ddb909bea073d2074eab}{BUF\+\_\+\+SAMPLES}}\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{filter__effect_8c_a58b2dc7112dc6e4ebbaa4715a3905e4f}\label{filter__effect_8c_a58b2dc7112dc6e4ebbaa4715a3905e4f}} 
+\index{filter\_effect.c@{filter\_effect.c}!srcLeft@{srcLeft}}
+\index{srcLeft@{srcLeft}!filter\_effect.c@{filter\_effect.c}}
+\doxysubsubsection{\texorpdfstring{srcLeft}{srcLeft}}
+{\footnotesize\ttfamily float32\+\_\+t src\+Left\mbox{[}\mbox{\hyperlink{main_8h_ad0c329adebc27917fc0a4f51079acf6a}{SAMPLES}}/2\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{filter__effect_8c_accd09377d2db29645101e1e8d66b9724}\label{filter__effect_8c_accd09377d2db29645101e1e8d66b9724}} 
+\index{filter\_effect.c@{filter\_effect.c}!srcRight@{srcRight}}
+\index{srcRight@{srcRight}!filter\_effect.c@{filter\_effect.c}}
+\doxysubsubsection{\texorpdfstring{srcRight}{srcRight}}
+{\footnotesize\ttfamily float32\+\_\+t src\+Right\mbox{[}\mbox{\hyperlink{main_8h_ad0c329adebc27917fc0a4f51079acf6a}{SAMPLES}}/2\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{filter__effect_8c_a589955503f0c5878244bbd9b10929ebb}\label{filter__effect_8c_a589955503f0c5878244bbd9b10929ebb}} 
+\index{filter\_effect.c@{filter\_effect.c}!txBuf@{txBuf}}
+\index{txBuf@{txBuf}!filter\_effect.c@{filter\_effect.c}}
+\doxysubsubsection{\texorpdfstring{txBuf}{txBuf}}
+{\footnotesize\ttfamily uint16\+\_\+t tx\+Buf\mbox{[}\mbox{\hyperlink{main_8h_a3fb0af62d4d7ddb909bea073d2074eab}{BUF\+\_\+\+SAMPLES}}\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+

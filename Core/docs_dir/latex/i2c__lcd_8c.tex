@@ -1,0 +1,185 @@
+\hypertarget{i2c__lcd_8c}{}\doxysection{Src/i2c\+\_\+lcd.c File Reference}
+\label{i2c__lcd_8c}\index{Src/i2c\_lcd.c@{Src/i2c\_lcd.c}}
+{\ttfamily \#include \char`\"{}i2c\+\_\+lcd.\+h\char`\"{}}\newline
+Include dependency graph for i2c\+\_\+lcd.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{i2c__lcd_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{i2c__lcd_8c_ae67b6b4b68959f193bb470545bf5984a}{lcd\+\_\+send\+\_\+cmd}} (\mbox{\hyperlink{structI2C__LCD__HandleTypeDef}{I2\+C\+\_\+\+LCD\+\_\+\+Handle\+Type\+Def}} $\ast$\mbox{\hyperlink{main_8c_a8e4e0925e0cf37d4bd014d84d85ad9e0}{lcd}}, char cmd)
+\begin{DoxyCompactList}\small\item\em Sends a command to the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c__lcd_8c_a1e19de899d1578ad3137e4c11fa94b56}{lcd\+\_\+send\+\_\+data}} (\mbox{\hyperlink{structI2C__LCD__HandleTypeDef}{I2\+C\+\_\+\+LCD\+\_\+\+Handle\+Type\+Def}} $\ast$\mbox{\hyperlink{main_8c_a8e4e0925e0cf37d4bd014d84d85ad9e0}{lcd}}, char data)
+\begin{DoxyCompactList}\small\item\em Sends data (character) to the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c__lcd_8c_aa1d0651d9c99044ac36f8e2abb4370f6}{lcd\+\_\+clear}} (\mbox{\hyperlink{structI2C__LCD__HandleTypeDef}{I2\+C\+\_\+\+LCD\+\_\+\+Handle\+Type\+Def}} $\ast$\mbox{\hyperlink{main_8c_a8e4e0925e0cf37d4bd014d84d85ad9e0}{lcd}})
+\begin{DoxyCompactList}\small\item\em Clears the LCD display. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c__lcd_8c_a0693679db2dcb227dba8e4656f5215d1}{lcd\+\_\+gotoxy}} (\mbox{\hyperlink{structI2C__LCD__HandleTypeDef}{I2\+C\+\_\+\+LCD\+\_\+\+Handle\+Type\+Def}} $\ast$\mbox{\hyperlink{main_8c_a8e4e0925e0cf37d4bd014d84d85ad9e0}{lcd}}, int col, int row)
+\begin{DoxyCompactList}\small\item\em Moves the cursor to a specific position on the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c__lcd_8c_a64eafe042d3730df357f35a1194898f6}{lcd\+\_\+init}} (\mbox{\hyperlink{structI2C__LCD__HandleTypeDef}{I2\+C\+\_\+\+LCD\+\_\+\+Handle\+Type\+Def}} $\ast$\mbox{\hyperlink{main_8c_a8e4e0925e0cf37d4bd014d84d85ad9e0}{lcd}})
+\begin{DoxyCompactList}\small\item\em Initializes the LCD in 4-\/bit mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c__lcd_8c_a51cc38e9b9b84710899c7a4b5819bb63}{lcd\+\_\+puts}} (\mbox{\hyperlink{structI2C__LCD__HandleTypeDef}{I2\+C\+\_\+\+LCD\+\_\+\+Handle\+Type\+Def}} $\ast$\mbox{\hyperlink{main_8c_a8e4e0925e0cf37d4bd014d84d85ad9e0}{lcd}}, char $\ast$str)
+\begin{DoxyCompactList}\small\item\em Sends a string to the LCD. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c__lcd_8c_ad19f380a45119dc3ef785a5f6cc99371}{lcd\+\_\+putchar}} (\mbox{\hyperlink{structI2C__LCD__HandleTypeDef}{I2\+C\+\_\+\+LCD\+\_\+\+Handle\+Type\+Def}} $\ast$\mbox{\hyperlink{main_8c_a8e4e0925e0cf37d4bd014d84d85ad9e0}{lcd}}, char ch)
+\begin{DoxyCompactList}\small\item\em Sends a single character to the LCD. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{i2c__lcd_8c_aa1d0651d9c99044ac36f8e2abb4370f6}\label{i2c__lcd_8c_aa1d0651d9c99044ac36f8e2abb4370f6}} 
+\index{i2c\_lcd.c@{i2c\_lcd.c}!lcd\_clear@{lcd\_clear}}
+\index{lcd\_clear@{lcd\_clear}!i2c\_lcd.c@{i2c\_lcd.c}}
+\doxysubsubsection{\texorpdfstring{lcd\_clear()}{lcd\_clear()}}
+{\footnotesize\ttfamily void lcd\+\_\+clear (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structI2C__LCD__HandleTypeDef}{I2\+C\+\_\+\+LCD\+\_\+\+Handle\+Type\+Def}} $\ast$}]{lcd }\end{DoxyParamCaption})}
+
+
+
+Clears the LCD display. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lcd} & Pointer to the LCD handle \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{i2c__lcd_8c_a0693679db2dcb227dba8e4656f5215d1}\label{i2c__lcd_8c_a0693679db2dcb227dba8e4656f5215d1}} 
+\index{i2c\_lcd.c@{i2c\_lcd.c}!lcd\_gotoxy@{lcd\_gotoxy}}
+\index{lcd\_gotoxy@{lcd\_gotoxy}!i2c\_lcd.c@{i2c\_lcd.c}}
+\doxysubsubsection{\texorpdfstring{lcd\_gotoxy()}{lcd\_gotoxy()}}
+{\footnotesize\ttfamily void lcd\+\_\+gotoxy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structI2C__LCD__HandleTypeDef}{I2\+C\+\_\+\+LCD\+\_\+\+Handle\+Type\+Def}} $\ast$}]{lcd,  }\item[{int}]{col,  }\item[{int}]{row }\end{DoxyParamCaption})}
+
+
+
+Moves the cursor to a specific position on the LCD. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lcd} & Pointer to the LCD handle \\
+\hline
+{\em col} & Column number (0-\/15) \\
+\hline
+{\em row} & Row number (0 or 1) \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{i2c__lcd_8c_a64eafe042d3730df357f35a1194898f6}\label{i2c__lcd_8c_a64eafe042d3730df357f35a1194898f6}} 
+\index{i2c\_lcd.c@{i2c\_lcd.c}!lcd\_init@{lcd\_init}}
+\index{lcd\_init@{lcd\_init}!i2c\_lcd.c@{i2c\_lcd.c}}
+\doxysubsubsection{\texorpdfstring{lcd\_init()}{lcd\_init()}}
+{\footnotesize\ttfamily void lcd\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structI2C__LCD__HandleTypeDef}{I2\+C\+\_\+\+LCD\+\_\+\+Handle\+Type\+Def}} $\ast$}]{lcd }\end{DoxyParamCaption})}
+
+
+
+Initializes the LCD in 4-\/bit mode. 
+
+Initializes the LCD.
+
+
+\begin{DoxyParams}{Parameters}
+{\em lcd} & Pointer to the LCD handle \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{i2c__lcd_8c_ad19f380a45119dc3ef785a5f6cc99371}\label{i2c__lcd_8c_ad19f380a45119dc3ef785a5f6cc99371}} 
+\index{i2c\_lcd.c@{i2c\_lcd.c}!lcd\_putchar@{lcd\_putchar}}
+\index{lcd\_putchar@{lcd\_putchar}!i2c\_lcd.c@{i2c\_lcd.c}}
+\doxysubsubsection{\texorpdfstring{lcd\_putchar()}{lcd\_putchar()}}
+{\footnotesize\ttfamily void lcd\+\_\+putchar (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structI2C__LCD__HandleTypeDef}{I2\+C\+\_\+\+LCD\+\_\+\+Handle\+Type\+Def}} $\ast$}]{lcd,  }\item[{char}]{ch }\end{DoxyParamCaption})}
+
+
+
+Sends a single character to the LCD. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lcd} & Pointer to the LCD handle \\
+\hline
+{\em ch} & Character to send \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{i2c__lcd_8c_a51cc38e9b9b84710899c7a4b5819bb63}\label{i2c__lcd_8c_a51cc38e9b9b84710899c7a4b5819bb63}} 
+\index{i2c\_lcd.c@{i2c\_lcd.c}!lcd\_puts@{lcd\_puts}}
+\index{lcd\_puts@{lcd\_puts}!i2c\_lcd.c@{i2c\_lcd.c}}
+\doxysubsubsection{\texorpdfstring{lcd\_puts()}{lcd\_puts()}}
+{\footnotesize\ttfamily void lcd\+\_\+puts (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structI2C__LCD__HandleTypeDef}{I2\+C\+\_\+\+LCD\+\_\+\+Handle\+Type\+Def}} $\ast$}]{lcd,  }\item[{char $\ast$}]{str }\end{DoxyParamCaption})}
+
+
+
+Sends a string to the LCD. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lcd} & Pointer to the LCD handle \\
+\hline
+{\em str} & Null-\/terminated string to display \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{i2c__lcd_8c_ae67b6b4b68959f193bb470545bf5984a}\label{i2c__lcd_8c_ae67b6b4b68959f193bb470545bf5984a}} 
+\index{i2c\_lcd.c@{i2c\_lcd.c}!lcd\_send\_cmd@{lcd\_send\_cmd}}
+\index{lcd\_send\_cmd@{lcd\_send\_cmd}!i2c\_lcd.c@{i2c\_lcd.c}}
+\doxysubsubsection{\texorpdfstring{lcd\_send\_cmd()}{lcd\_send\_cmd()}}
+{\footnotesize\ttfamily void lcd\+\_\+send\+\_\+cmd (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structI2C__LCD__HandleTypeDef}{I2\+C\+\_\+\+LCD\+\_\+\+Handle\+Type\+Def}} $\ast$}]{lcd,  }\item[{char}]{cmd }\end{DoxyParamCaption})}
+
+
+
+Sends a command to the LCD. 
+
+I2C LCD Library for STM32 Object-\/oriented version with multiple LCD support 
+\begin{DoxyParams}{Parameters}
+{\em lcd} & Pointer to the LCD handle \\
+\hline
+{\em cmd} & Command byte to send \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{i2c__lcd_8c_a1e19de899d1578ad3137e4c11fa94b56}\label{i2c__lcd_8c_a1e19de899d1578ad3137e4c11fa94b56}} 
+\index{i2c\_lcd.c@{i2c\_lcd.c}!lcd\_send\_data@{lcd\_send\_data}}
+\index{lcd\_send\_data@{lcd\_send\_data}!i2c\_lcd.c@{i2c\_lcd.c}}
+\doxysubsubsection{\texorpdfstring{lcd\_send\_data()}{lcd\_send\_data()}}
+{\footnotesize\ttfamily void lcd\+\_\+send\+\_\+data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structI2C__LCD__HandleTypeDef}{I2\+C\+\_\+\+LCD\+\_\+\+Handle\+Type\+Def}} $\ast$}]{lcd,  }\item[{char}]{data }\end{DoxyParamCaption})}
+
+
+
+Sends data (character) to the LCD. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lcd} & Pointer to the LCD handle \\
+\hline
+{\em data} & Data byte to send \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}
